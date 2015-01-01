@@ -1,3 +1,11 @@
+## Laravel
 /bootstrap/compiled.php
 .env.*.php
 .env.php
+
+## Emacs
+*~
+
+## PhpStorm
+*.iml
+.idea/
