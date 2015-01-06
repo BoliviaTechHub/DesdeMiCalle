@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function() {
-	return View::make('home');
-});
+Route::get('/', function() {	return View::make('home'); });
+
+Route::resource('users', 'UsersController');
+Route::resource('register', 'UsersController@create');
+
+Route::resource('sessions', 'SessionsController');
+Route::get('login', 'SessionsController@create');
+Route::get('logout', 'SessionsController@destroy');
