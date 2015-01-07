@@ -1,36 +1,24 @@
 @extends('layouts.default')
 @section('content')
 
+<!-- Site styles -->
+<link type="text/css" rel="stylesheet" href="{{asset('css/signin.css')}}">
+
 <div class="container">
   <row>
     <div class="col-md-8">
-
-      <h1>Ingresar al sitio</h1>
-
-      {{ Form::open( ['route' => 'sessions.store', 'class' => 'form-horizontal'] ) }}
-
-        <div class="form-group">
-          {{ Form::label('email', 'Correo electrónico: ', ['class' => 'col-sm-3 control-label']) }}
-          <div class="col-sm-9">
-            {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
-          </div>
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('password', 'Contraseña: ', ['class' => 'col-sm-3 control-label']) }}
-          <div class="col-sm-9">
-            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña']) }}
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-8">
-            {{ Form::submit('Ingresar', ['class' => 'btn btn-default']) }}
-          </div>
-        </div>
-
-      {{ Form::close() }}
-
+      <div class="container">
+        {{ Form::open( ['route' => 'sessions.store', 'class' => 'form-signin'] ) }}
+          <h2 class="form-signin-heading">Ingresar al sitio</h2>
+          {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
+          {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña']) }}
+<!--          <div class="checkbox">-->
+<!--            <label>            <input type="checkbox" value="remember-me"> Remember me          </label>-->
+<!--          </div>-->
+          {{ Form::submit('Ingresar', ['class' => 'btn btn-lg btn-primary btn-block']) }}
+          <a class="btn btn-lg btn-default btn-block" href="/register">Registrarse</a>
+        {{ Form::close() }}
+      </div>
     </div>
   </row>
 </div>

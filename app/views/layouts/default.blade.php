@@ -54,11 +54,11 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if(!Auth::check())
-            <li><h5><a href="/login" title="">Ingresar</a></h5></li>
-            <li><h5><a href="/register" title="">Registrarse</a></h5></li>
+            <li><h5><a href="/login" class="btn btn-primary btn-sm">Ingresar</a></h5></li>
+            <li><h5><a href="/register" class="btn btn-default btn-sm">Registrarse</a></h5></li>
             @else
             <li><h5>Hola! {{Auth::user()->username}}</h5></li>
-            <li><h5><a href="/logout">Salir</a></h5></li>
+            <li><h5><a href="/logout" class="btn btn-default btn-sm">Salir</a></h5></li>
             @endif
           </ul>
         </div>
