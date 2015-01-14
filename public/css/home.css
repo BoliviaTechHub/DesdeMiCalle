@@ -67,6 +67,12 @@ body {
     top: 50%;
 }
 
+/* Carousel titles. */
+.carousel-title {
+    color: #f5f5f5;
+    font-size: 60px;
+}
+
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

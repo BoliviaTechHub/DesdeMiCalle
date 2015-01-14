@@ -1,3 +1,7 @@
 body {
     margin-top: 80px;
 }
+
+.login-buttons {
+    padding: 5px;
+}

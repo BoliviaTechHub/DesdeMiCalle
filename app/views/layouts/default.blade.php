@@ -48,17 +48,17 @@
           <ul class="nav navbar-nav">
             <li><a href="javascript:void(0)">Acerca de Nosotros</a></li>
             <li><a href="javascript:void(0)">Contacto</a></li>
-            <li><a href="javascript:void(0)">Reclamos</a></li>
-            <li><a href="javascript:void(0)">Obras P&uacute;blicas</a></li>
+            <li><a href="/claims">Reclamos</a></li>
+            <li><a href="/publicWorks">Obras P&uacute;blicas</a></li>
             <li><a href="javascript:void(0)">Requerimientos de Información</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if(!Auth::check())
-            <li><h5><a href="/login" class="btn btn-primary btn-sm">Ingresar</a></h5></li>
-            <li><h5><a href="/register" class="btn btn-default btn-sm">Registrarse</a></h5></li>
+            <li class="login-buttons"><h5><a href="/login" class="btn btn-primary btn-sm">Ingresar</a></h5></li>
+            <li class="login-buttons"><h5><a href="/register" class="btn btn-default btn-sm">Registrarse</a></h5></li>
             @else
-            <li><h5>Hola! {{Auth::user()->username}}</h5></li>
-            <li><h5><a href="/logout" class="btn btn-default btn-sm">Salir</a></h5></li>
+            <li class="login-buttons"><h4>Hola! {{Auth::user()->username}}</h4></li>
+            <li class="login-buttons"><h5><a href="/logout" class="btn btn-default btn-sm">Salir</a></h5></li>
             @endif
           </ul>
         </div>

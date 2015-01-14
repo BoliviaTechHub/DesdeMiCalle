@@ -12,32 +12,32 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+      <img src="{{asset('images/banner0.png')}}" alt="First slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>Example headline.</h1>
-          <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+          <h1 class="carousel-title">Desde Mi Calle.</h1>
+          <p>Caminos de la Villa es una plataforma interactiva que busca visibilizar las vulneraciones de derechos que existen en las villas de la Ciudad de Buenos Aires. En este espacio podés exigir mejoras para tu barrio y monitorear que las obras comprometidas por el gobierno se cumplan.</p>
+          <p><a class="btn btn-lg btn-primary" href="/register" role="button">Registrate ahora</a></p>
         </div>
       </div>
     </div>
     <div class="item">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAGZmZgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+      <img src="{{asset('images/banner1.png')}}" alt="Second slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>Another example headline.</h1>
+          <h1 class="carousel-title">Haz tu reclamo ya!</h1>
           <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+          <p><a class="btn btn-lg btn-primary" href="/claims/create" role="button">Haz tu Reclamo</a></p>
         </div>
       </div>
     </div>
     <div class="item">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+      <img src="{{asset('images/banner2.png')}}" alt="Third slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>One more for good measure.</h1>
+          <h1 class="carousel-title">Pide información acerca de obras públicas.</h1>
           <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+          <p><a class="btn btn-lg btn-primary" href="/publicWorks/create" role="button">Pide Información</a></p>
         </div>
       </div>
     </div>
@@ -65,19 +65,19 @@
       <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
       <h2>Reclamos</h2>
       <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <p><a class="btn btn-default" href="/claims/create" role="button">Haz tu Reclamo &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
       <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
       <h2>Obras Públicas</h2>
       <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <p><a class="btn btn-default" href="#" role="button">Monitorea Obras &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
     <div class="col-lg-4">
       <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
       <h2>Requerimientos de Información</h2>
       <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <p><a class="btn btn-default" href="#" role="button">Pide Informaci&oacute;n &raquo;</a></p>
     </div><!-- /.col-lg-4 -->
   </div><!-- /.row -->
 
@@ -128,7 +128,7 @@
   <!-- FOOTER -->
   <footer>
     <p class="pull-right"><a href="#">Volver arriba</a></p>
-    <p>&copy; 2015 SIM &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <p>&copy; 2015 SIM &middot; <a href="javascript:void(0)">Privacidad</a> &middot; <a href="javascript:void(0)">Términos y Condiciones</a></p>
   </footer>
 
 </div><!-- /.container -->
