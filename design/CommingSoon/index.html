@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+    <meta charset="UTF-8">
+    <title>Sunrise - Responsive HTML5 Coming Soon Template</title>
+    <meta name="description" content="Proyecto de Desde mi Calle">
+    <meta name="author" content="Fabrica de Software">
+    <meta name="authorUrl" content="">
+    
+    <!-- Mobile Specific Meta -->   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/TimeCircles.css">
+
+	<!--[if IE 9]> 
+    	<link rel="stylesheet" href="assets/css/ie9.css">
+    <![endif]-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+ <body>
+ <div class="bg">
+	 <div class="bg-color">
+		  <div class="container content">
+	 
+				<div class="row">
+					<div class="sun clearfix">
+						<div id="left-block" class="col-sm-4 text-center">
+							<img class="img-responsive logo-app" src="assets/images/tab.png" alt="tab"/>
+						</div>
+						<div id="right-block" class="col-sm-8">
+							<div class="row">
+							   <div class="col-sm-offset-1 col-sm-10">
+									<div class="timing">
+										<div id="count-down" data-date="2015-03-1 00:00:00">
+											
+										</div>
+									</div>
+									<!-- /.timing -->
+							   </div>
+							</div>
+							<div class="row">
+							  <div class="col-sm-offset-2 col-sm-8">
+								    <h3>Muy Pronto...</h3>
+							  </div>
+							</div>                                 
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .container end here -->
+	 </div>
+ </div>
+   
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/TimeCircles.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/jquery.placeholder.js"></script>
+    <script type="text/javascript">
+    	$(function() {
+				// Invoke the plugin
+				$('input, textarea').placeholder();
+			});
+    </script>
+    <script>
+      $("#count-down").TimeCircles(
+       {   
+           circle_bg_color: "#8a7f71",
+           use_background: true,
+           bg_width: 1.0,
+           fg_width: 0.02,
+           time: {
+                Days: { color: "#fefeee" },
+                Hours: { color: "#fefeee" },
+                Minutes: { color: "#fefeee" },
+                Seconds: { color: "#fefeee" }
+            }
+      }
+      );
+
+    </script>
+    
+  </body>
+</html>
