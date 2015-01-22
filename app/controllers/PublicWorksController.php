@@ -1,34 +1,28 @@
 <?php
 
-class ClaimsController extends \BaseController {
+class PublicWorksController extends \BaseController {
 
-  protected $claim;
+  protected $publicWork;
 
   /**
-   * Claim Constructor.
+   * Public Work Constructor.
    *
-   * @param Claim $claim
+   * @param PublicWork $publicWork
    */
-  public function __construct(Claim $claim) {
-    $this->claim = $claim;
+  public function __construct(PublicWork $publicWork) {
+    $this->publicWork = $publicWork;
   }
 
-  /**
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-    $claims = $this->claim->all();
-    $categories = ClaimWorkCategory::all();
-    $neighborhoods = Neighborhood::all();
+    $publicWorks = $this->publicWork->all();
 
-    return View::make('claims.index', [
-      'claims' => $claims,
-      'categories' => $categories,
-      'neighborhoods' => $neighborhoods
-    ]);
+    return View::make('publicWorks.index', ['publicWorks' => $publicWorks]);
 	}
 
 
@@ -40,7 +34,7 @@ class ClaimsController extends \BaseController {
 	public function create()
 	{
     if(Auth::check()) {
-      return View::make('claims.create');
+      return View::make('publicWorks.create');
     } else {
       return View::make('users.create');
     }
@@ -54,13 +48,14 @@ class ClaimsController extends \BaseController {
 	 */
 	public function store()
 	{
-    $claim = new Claim();
-    $claim->title = Input::get('title');
-    $claim->description = Input::get('description');
-    $claim->userId = 1;
-    $claim->neighborhoodId = 1;
-    $claim->claimWorkCategoryId = 1;
-    $claim->save();
+    $publicWork = new PublicWork();
+    $publicWork->title = Input::get('title');
+    $publicWork->description = Input::get('description');
+    $publicWork->userId = 1;
+    $publicWork->neighborhoodId = 1;
+    $publicWork->claimWorkCategoryId = 1;
+    $publicWork->publicWorkStatusId = 1;
+    $publicWork->save();
 
     return $this->index();
 	}
@@ -74,8 +69,8 @@ class ClaimsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-    $claim = $this->claim->whereId($id)->first();
-    return View::make('claims.show', ['claim' => $claim]);
+    $publicWork = $this->publicWork->whereId($id)->first();
+    return View::make('publicWorks.show', ['publicWork' => $publicWork]);
 	}
 
 

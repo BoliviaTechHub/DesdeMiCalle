@@ -23,3 +23,5 @@ Route::get('logout', 'SessionsController@destroy');
 Route::resource('claims', 'ClaimsController');
 
 Route::resource('publicWorks', 'PublicWorksController');
+
+Route::resource('informationRequests', 'InformationRequestsController');

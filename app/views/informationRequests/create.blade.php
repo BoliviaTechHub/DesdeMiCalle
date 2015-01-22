@@ -5,9 +5,9 @@
   <row>
     <div class="col-md-8">
 
-      <h1>Crear Obra Pública</h1>
+      <h1>Pide Información</h1>
 
-      {{ Form::open( ['route' => 'publicWorks.store', 'class' => 'form-horizontal'] ) }}
+      {{ Form::open( ['route' => 'informationRequests.store', 'class' => 'form-horizontal'] ) }}
 
       <div class="form-group">
         {{ Form::label('title', 'Título: ', ['class' => 'col-sm-3 control-label']) }}
@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-8">
-          {{ Form::submit('Guardar Obra Pública', ['class' => 'btn btn-default']) }}
+          {{ Form::submit('Hacer Requerimiento de Información', ['class' => 'btn btn-default']) }}
         </div>
       </div>
 

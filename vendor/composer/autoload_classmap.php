@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddInformationRequestTable' => $baseDir . '/app/database/migrations/2015_01_22_195821_add_information_request_table.php',
     'AddRememberTokenToUsersTable' => $baseDir . '/app/database/migrations/2015_01_06_085114_add_remember_token_to_users_table.php',
     'AddingForeingToItselfInClaimWorkCategory' => $baseDir . '/app/database/migrations/2015_01_07_053921_adding_foreing_to_itself_in_claimWorkCategory.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
@@ -20,6 +21,8 @@ return array(
     'Boris\\ReadlineClient' => $vendorDir . '/d11wtq/boris/lib/Boris/ReadlineClient.php',
     'Boris\\ShallowParser' => $vendorDir . '/d11wtq/boris/lib/Boris/ShallowParser.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
+    'Claim' => $baseDir . '/app/models/Claim.php',
+    'ClaimWorkCategory' => $baseDir . '/app/models/ClaimWorkCategory.php',
     'ClaimsController' => $baseDir . '/app/controllers/ClaimsController.php',
     'ClassPreloader\\Application' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Application.php',
     'ClassPreloader\\ClassList' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/ClassList.php',
@@ -502,6 +505,7 @@ return array(
     'Monolog\\Processor\\UidProcessor' => $vendorDir . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
     'Monolog\\Processor\\WebProcessor' => $vendorDir . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
     'Monolog\\Registry' => $vendorDir . '/monolog/monolog/src/Monolog/Registry.php',
+    'Neighborhood' => $baseDir . '/app/models/Neighborhood.php',
     'Net_SCP' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Net/SCP.php',
     'Net_SFTP' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Net/SFTP.php',
     'Net_SFTP_Stream' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Net/SFTP/Stream.php',
@@ -965,6 +969,8 @@ return array(
     'Psr\\Log\\LoggerInterface' => $vendorDir . '/psr/log/Psr/Log/LoggerInterface.php',
     'Psr\\Log\\LoggerTrait' => $vendorDir . '/psr/log/Psr/Log/LoggerTrait.php',
     'Psr\\Log\\NullLogger' => $vendorDir . '/psr/log/Psr/Log/NullLogger.php',
+    'PublicWork' => $baseDir . '/app/models/PublicWork.php',
+    'PublicWorksController' => $baseDir . '/app/controllers/PublicWorksController.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'SessionsController' => $baseDir . '/app/controllers/SessionsController.php',
     'Stack\\Builder' => $vendorDir . '/stack/builder/src/Stack/Builder.php',
@@ -1574,7 +1580,6 @@ return array(
     'System_SSH_Agent' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'System_SSH_Agent_Identity' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
-    'TestTable' => $baseDir . '/app/database/migrations/2015_01_07_163600_test_table.php',
     'User' => $baseDir . '/app/models/User.php',
     'UsersController' => $baseDir . '/app/controllers/UsersController.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
@@ -1598,5 +1603,4 @@ return array(
     'Whoops\\Run' => $vendorDir . '/filp/whoops/src/Whoops/Run.php',
     'Whoops\\Util\\Misc' => $vendorDir . '/filp/whoops/src/Whoops/Util/Misc.php',
     'Whoops\\Util\\TemplateHelper' => $vendorDir . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
-    'publicWorksController' => $baseDir . '/app/controllers/publicWorksController.php',
 );

@@ -50,7 +50,7 @@
             <li><a href="javascript:void(0)">Contacto</a></li>
             <li><a href="/claims">Reclamos</a></li>
             <li><a href="/publicWorks">Obras P&uacute;blicas</a></li>
-            <li><a href="javascript:void(0)">Requerimientos de Información</a></li>
+            <li><a href="/informationRequests">Requerimientos de Información</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             @if(!Auth::check())

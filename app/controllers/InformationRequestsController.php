@@ -1,33 +1,29 @@
 <?php
 
-class ClaimsController extends \BaseController {
+class InformationRequestsController extends \BaseController {
 
-  protected $claim;
+  protected $informationRequest;
 
   /**
-   * Claim Constructor.
+   * InformationRequest Constructor.
    *
-   * @param Claim $claim
+   * @param InformationRequest $informationRequest
    */
-  public function __construct(Claim $claim) {
-    $this->claim = $claim;
+  public function __construct(InformationRequest $informationRequest) {
+    $this->informationRequest = $informationRequest;
   }
 
-  /**
+	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-    $claims = $this->claim->all();
-    $categories = ClaimWorkCategory::all();
-    $neighborhoods = Neighborhood::all();
+    $informationRequests = $this->informationRequest->all();
 
-    return View::make('claims.index', [
-      'claims' => $claims,
-      'categories' => $categories,
-      'neighborhoods' => $neighborhoods
+    return View::make('informationRequests.index', [
+      'informationRequests' => $informationRequests
     ]);
 	}
 
@@ -40,7 +36,7 @@ class ClaimsController extends \BaseController {
 	public function create()
 	{
     if(Auth::check()) {
-      return View::make('claims.create');
+      return View::make('informationRequests.create');
     } else {
       return View::make('users.create');
     }
@@ -54,13 +50,13 @@ class ClaimsController extends \BaseController {
 	 */
 	public function store()
 	{
-    $claim = new Claim();
-    $claim->title = Input::get('title');
-    $claim->description = Input::get('description');
-    $claim->userId = 1;
-    $claim->neighborhoodId = 1;
-    $claim->claimWorkCategoryId = 1;
-    $claim->save();
+    $informationRequest = new InformationRequest();
+    $informationRequest->title = Input::get('title');
+    $informationRequest->description = Input::get('description');
+    $informationRequest->userId = 1;
+    $informationRequest->neighborhoodId = 1;
+    $informationRequest->claimWorkCategoryId = 1;
+    $informationRequest->save();
 
     return $this->index();
 	}
@@ -74,8 +70,8 @@ class ClaimsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-    $claim = $this->claim->whereId($id)->first();
-    return View::make('claims.show', ['claim' => $claim]);
+    $informationRequest = $this->informationRequest->whereId($id)->first();
+    return View::make('informationRequests.show', ['informationRequest' => $informationRequest]);
 	}
 
 
