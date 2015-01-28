@@ -46,8 +46,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="javascript:void(0)">Acerca de Nosotros</a></li>
-            <li><a href="javascript:void(0)">Contacto</a></li>
+            <!---<li><a href="javascript:void(0)">Acerca de Nosotros</a></li>-->
+            <!---<li><a href="javascript:void(0)">Contacto</a></li>-->
             <li><a href="/claims">Reclamos</a></li>
             <li><a href="/publicWorks">Obras P&uacute;blicas</a></li>
             <li><a href="/informationRequests">Requerimientos de Información</a></li>
