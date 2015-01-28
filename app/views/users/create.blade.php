@@ -14,7 +14,7 @@
           <div class="col-sm-9">
             {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Nombre de usuario']) }}
           </div>
-          {{ $errors->first('username', ':O   :message') }}
+          {{ $errors->first('username', ':message') }}
         </div>
 
         <div class="form-group">
@@ -22,7 +22,7 @@
           <div class="col-sm-9">
             {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
           </div>
-          {{ $errors->first('email', ':P   :message') }}
+          {{ $errors->first('email', ':message') }}
         </div>
 
         <div class="form-group">
