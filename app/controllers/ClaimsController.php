@@ -42,7 +42,7 @@ class ClaimsController extends \BaseController {
     if(Auth::check()) {
       return View::make('claims.create');
     } else {
-      return View::make('users.create');
+      return Redirect::to('login');
     }
 	}
 

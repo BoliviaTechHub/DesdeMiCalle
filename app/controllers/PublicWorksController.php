@@ -36,7 +36,7 @@ class PublicWorksController extends \BaseController {
     if(Auth::check()) {
       return View::make('publicWorks.create');
     } else {
-      return View::make('users.create');
+      return Redirect::to('login');
     }
 	}
 
