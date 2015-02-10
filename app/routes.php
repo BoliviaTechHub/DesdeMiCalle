@@ -13,7 +13,8 @@
 
 Route::get('/', function() {	return View::make('home'); });
 
-Route::resource('users', 'UsersController');
+// This were commented because now the Confide routes are used.
+//Route::resource('users', 'UsersController');
 Route::resource('register', 'UsersController@create');
 
 Route::resource('sessions', 'SessionsController');
@@ -25,3 +26,16 @@ Route::resource('claims', 'ClaimsController');
 Route::resource('publicWorks', 'PublicWorksController');
 
 Route::resource('informationRequests', 'InformationRequestsController');
+//
+
+// Confide routes
+Route::get('users/create', 'UsersController@create');
+Route::post('users', 'UsersController@store');
+Route::get('users/login', 'UsersController@login');
+Route::post('users/login', 'UsersController@doLogin');
+Route::get('users/confirm/{code}', 'UsersController@confirm');
+Route::get('users/forgot_password', 'UsersController@forgotPassword');
+Route::post('users/forgot_password', 'UsersController@doForgotPassword');
+Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
+Route::post('users/reset_password', 'UsersController@doResetPassword');
+Route::get('users/logout', 'UsersController@logout');

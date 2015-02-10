@@ -7,53 +7,48 @@
 
       <h1>Registrarse</h1>
 
-      {{ Form::open( ['route' => 'users.store', 'class' => 'form-horizontal'] ) }}
-
-        <div class="form-group">
-          {{ Form::label('username', 'Nombre de usuario: ', ['class' => 'col-sm-3 control-label']) }}
-          <div class="col-sm-9">
-            {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Nombre de usuario']) }}
+      <form method="POST" action="{{{ URL::to('users') }}}" accept-charset="UTF-8">
+        <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
+        <fieldset>
+          @if (Cache::remember('username_in_confide', 5, function() {
+          return Schema::hasColumn(Config::get('auth.table'), 'username');
+          }))
+          <div class="form-group">
+            <label for="username">{{{ Lang::get('confide::confide.username') }}}</label>
+            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.username') }}}" type="text" name="username" id="username" value="{{{ Input::old('username') }}}">
           </div>
-          {{ $errors->first('username', ':message') }}
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('email', 'Correo electrónico: ', ['class' => 'col-sm-3 control-label']) }}
-          <div class="col-sm-9">
-            {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) }}
+          @endif
+          <div class="form-group">
+            <label for="email">{{{ Lang::get('confide::confide.e_mail') }}} <small>{{ Lang::get('confide::confide.signup.confirmation_required') }}</small></label>
+            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
           </div>
-          {{ $errors->first('email', ':message') }}
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('password', 'Contraseña: ', ['class' => 'col-sm-3 control-label']) }}
-          <div class="col-sm-9">
-            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña']) }}
+          <div class="form-group">
+            <label for="password">{{{ Lang::get('confide::confide.password') }}}</label>
+            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password') }}}" type="password" name="password" id="password">
           </div>
-          {{ $errors->first('password') }}
-        </div>
-
-        <div class="form-group">
-          {{ Form::label('name', 'Nombre: ', ['class' => 'col-sm-3 control-label']) }}
-          <div class="col-sm-9">
-            {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre']) }}
+          <div class="form-group">
+            <label for="password_confirmation">{{{ Lang::get('confide::confide.password_confirmation') }}}</label>
+            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password_confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
           </div>
-        </div>
 
-        <div class="form-group">
-          {{ Form::label('lastName', 'Apellido: ', ['class' => 'col-sm-3 control-label']) }}
-          <div class="col-sm-9">
-            {{ Form::text('lastName', null, ['class' => 'form-control', 'placeholder' => 'Apellido']) }}
+          @if (Session::get('error'))
+          <div class="alert alert-error alert-danger">
+            @if (is_array(Session::get('error')))
+            {{ head(Session::get('error')) }}
+            @endif
           </div>
-        </div>
+          @endif
 
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-8">
-            {{ Form::submit('Registrarse', ['class' => 'btn btn-default']) }}
+          @if (Session::get('notice'))
+          <div class="alert">{{ Session::get('notice') }}</div>
+          @endif
+
+          <div class="form-actions form-group">
+            <button type="submit" class="btn btn-primary">{{{ Lang::get('confide::confide.signup.submit') }}}</button>
           </div>
-        </div>
 
-      {{ Form::close() }}
+        </fieldset>
+      </form>
 
     </div>
   </row>

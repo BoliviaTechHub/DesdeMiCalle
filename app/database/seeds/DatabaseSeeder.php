@@ -9,9 +9,34 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Eloquent::unguard();
+//		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+    $this->call('ClaimTableSeeder');
+    $this->command->info('Claim table seeded!');
+    $this->call('PublicWorkTableSeeder');
+    $this->command->info('PublicWork table seeded!');
+    $this->call('ClaimWorkCategoryTableSeeder');
+    $this->command->info('ClaimWorkCategory table seeded!');
 	}
+}
 
+class ClaimTableSeeder extends Seeder {
+  public function run() {
+    DB::table('claim')->delete();
+  }
+}
+
+class PublicWorkTableSeeder extends Seeder {
+  public function run() {
+    DB::table('publicWork')->delete();
+  }
+}
+
+class ClaimWorkCategoryTableSeeder extends Seeder {
+  public function run() {
+    DB::table('claimWorkCategory')->delete();
+    DB::table('claimWorkCategory')->insert(array(array(
+      'name' => 'testlol'
+    )));
+  }
 }
