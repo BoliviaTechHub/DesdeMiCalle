@@ -22,3 +22,6 @@ Thumbs.db
 ## PhpStorm
 *.iml
 .idea/
+
+## Social Plugins config file.
+app/config/packages/artdarek/oauth-4-laravel/config.php

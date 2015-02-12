@@ -201,10 +201,10 @@ class UsersController extends Controller
 
     public function loginWithFacebook() {
        // get data from input
-      $code = Input::get( 'code' );
+      $code = Input::get('code');
 
       // get fb service
-      $fb = OAuth::consumer( 'Facebook' );
+      $fb = OAuth::consumer('Facebook', URL::action('UsersController@loginWithFacebook'));
 
       // check if code is valid
 
@@ -233,5 +233,16 @@ class UsersController extends Controller
           // return to facebook login url
            return Redirect::to( (string)$url );
       }
+    }
+
+    public function test() {
+      $data = 'data';
+      $data = $_GET['data'];
+      echo URL::action('UsersController@loginWithFacebook') . '</br>';
+      echo 'test ' . $data;
+    }
+
+    public function test2() {
+      return Redirect::action('UsersController@test', array('data' => 'asdf'));
     }
 }
