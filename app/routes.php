@@ -20,6 +20,7 @@ Route::resource('register', 'UsersController@create');
 Route::resource('sessions', 'SessionsController');
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
+Route::get('users/loginWithFacebook', 'UsersController@loginWithFacebook');
 
 Route::resource('claims', 'ClaimsController');
 
