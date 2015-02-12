@@ -211,18 +211,19 @@ class UsersController extends Controller
       // if code is provided get user data and sign in
       if ( !empty( $code ) ) {
 
-          // This was a callback request from facebook, get the token
-          $token = $fb->requestAccessToken( $code );
-
-          // Send a request with it
-          $result = json_decode( $fb->request( '/me' ), true );
-
-          $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-          echo $message. "<br/>";
-
-          //Var_dump
-          //display whole array().
-          dd($result);
+        echo ':D';
+//          // This was a callback request from facebook, get the token
+//          $token = $fb->requestAccessToken( $code );
+//
+//          // Send a request with it
+//          $result = json_decode( $fb->request( '/me' ), true );
+//
+//          $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
+//          echo $message. "<br/>";
+//
+//          //Var_dump
+//          //display whole array().
+//          dd($result);
 
       }
       // if not ask for permission first
