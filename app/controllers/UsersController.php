@@ -201,7 +201,7 @@ class UsersController extends Controller
 
     public function loginWithFacebook() {
        // get data from input
-      $code = Input::get('code');
+      $code = Input::get('code', 'asdf');
 //      $code = $_GET['code'];
       echo 'code = ' . $code . '</br>';
 
