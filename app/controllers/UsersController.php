@@ -200,6 +200,8 @@ class UsersController extends Controller
     }
 
     public function loginWithFacebook() {
+      echo 'url = ' . URL::current() . '</br>';
+
        // get data from input
       $code = Input::get('code');
 //      $code = $_GET['code'];
@@ -241,12 +243,14 @@ class UsersController extends Controller
 
     public function test() {
       $data = 'data';
-      $data = $_GET['data'];
+//      $data = $_GET['data'];
+      $data = Input::get('data');
       echo URL::action('UsersController@loginWithFacebook') . '</br>';
-      echo 'test ' . $data;
+      echo 'data = ' . $data . '</br>';
     }
 
     public function test2() {
-      return Redirect::action('UsersController@test', array('data' => 'asdf'));
+//      return Redirect::action('UsersController@test', array('data' => 'loooooool'));
+      return Redirect::action('UsersController@loginWithFacebook', array('code' => 'loooooool'));
     }
 }
