@@ -201,12 +201,12 @@ class UsersController extends Controller
 
     public function loginWithFacebook() {
        // get data from input
-      $code = Input::get('code', 'asdf');
+      $code = Input::get('code');
 //      $code = $_GET['code'];
       echo 'code = ' . $code . '</br>';
 
       // get fb service
-      $fb = OAuth::consumer('Facebook', URL::action('UsersController@loginWithFacebook'));
+      $fb = OAuth::consumer('Facebook');
 
       // check if code is valid
 
