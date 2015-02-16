@@ -208,8 +208,8 @@ class UsersController extends Controller
 //      echo '</br>';
 
        // get data from input
-//      $code = Input::get('code');
-      $code = $_GET['code'];
+      $code = Input::get('code');
+//      $code = $_GET['code'];
       echo 'code = ' . $code . '</br>';
 
       // get fb service
