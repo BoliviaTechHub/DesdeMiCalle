@@ -199,17 +199,17 @@ class UsersController extends Controller
         return Redirect::to('/');
     }
 
-    public function loginWithFacebook($code = NULL) {
-      echo 'url = ' . URL::current() . '</br>';
+    public function loginWithFacebook() {
+//      echo 'url = ' . URL::current() . '</br>';
 
-      echo '</br>';
-      $allData = Input::all();
-      print_r($allData);
-      echo '</br>';
+//      echo '</br>';
+//      $allData = Input::all();
+//      print_r($allData);
+//      echo '</br>';
 
        // get data from input
-      $code = Input::get('code');
-//      $code = $_GET['code'];
+//      $code = Input::get('code');
+      $code = $_GET['code'];
       echo 'code = ' . $code . '</br>';
 
       // get fb service
