@@ -199,7 +199,7 @@ class UsersController extends Controller
         return Redirect::to('/');
     }
 
-    public function loginWithFacebook() {
+    public function loginWithFacebook($code = NULL) {
       echo 'url = ' . URL::current() . '</br>';
 
       echo '</br>';
