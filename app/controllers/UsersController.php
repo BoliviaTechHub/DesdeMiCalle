@@ -262,9 +262,9 @@ class UsersController extends Controller
                 $usernameToSave = $username . $counter;
             }
 
-            $user = User::where('username', $usernameToSave);
+            $user = User::where('username', $usernameToSave)->first;
             $counter++;
-        } while ($user->id);
+        } while (isset($user->id));
 
         return $usernameToSave;
     }
