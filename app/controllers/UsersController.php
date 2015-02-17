@@ -240,7 +240,7 @@ class UsersController extends Controller
         $url = $fb->getAuthorizationUri();
 
         // Increase the attempts number.
-        $attempt .= 'x';
+        $attempt = $attempt . 'x';
 
         // return to facebook login url
         return Redirect::to( (string)$url . '&attempt=' . $attempt );
