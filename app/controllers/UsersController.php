@@ -227,7 +227,7 @@ class UsersController extends Controller
             // Verify if the user already exists.
             $user = User::where('facebook_id', $result['id'])->first();
 
-            if($user->id) {
+            if(isset($user->id)) {
                 echo 'yahay!';
             } else {
                 $usersController = new UsersController();
@@ -304,8 +304,11 @@ class UsersController extends Controller
 
         echo 'test2 !.. :| </br>';
 
-        $user = User::where('username', 'test')->first();
+        $user = User::where('username', 'testasdf')->first();
 
-        echo $user->id;
+        if(isset($user->id))
+            echo $user->id;
+        else
+            echo 'nhay';
     }
 }
