@@ -199,18 +199,15 @@ class UsersController extends Controller
         return Redirect::to('/');
     }
 
+    /**
+     * Log the user or create an account with the Facebook data if he hasn't an account.
+     *
+     * @return null
+     */
     public function loginWithFacebook() {
-//      echo 'url = ' . URL::current() . '</br>';
 
-//      echo '</br>';
-//      $allData = Input::all();
-//      print_r($allData);
-//      echo '</br>';
-
-       // get data from input
+      // get data from input
       $code = Input::get('code');
-//      $code = $_GET['code'];
-      echo 'code = ' . $code . '</br>';
 
       // get fb service
       $fb = OAuth::consumer('Facebook');
@@ -236,12 +233,11 @@ class UsersController extends Controller
       }
       // if not ask for permission first
       else {
-          // get fb authorization
-          $url = $fb->getAuthorizationUri();
+        // get fb authorization
+        $url = $fb->getAuthorizationUri();
 
-          // return to facebook login url
-//           return Redirect::to( (string)$url );
-        echo $url;
+        // return to facebook login url
+        return Redirect::to( (string)$url );
       }
     }
 
