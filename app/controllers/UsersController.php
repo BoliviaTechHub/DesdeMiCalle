@@ -232,7 +232,7 @@ class UsersController extends Controller
             } else {
                 $usersController = new UsersController();
                 $username = $usersController->createUsername($result['first_name']);
-                $user = $usersController->signupWithRandomPassword($username, $result['email']);
+                $user = $usersController->signupWithRandomPassword($username, $result['email'], $result['id']);
                 echo 'userid => ' . $user->id;
             }
 
@@ -270,13 +270,14 @@ class UsersController extends Controller
         return $usernameToSave;
     }
 
-    public function signupWithRandomPassword($username, $email) {
+    public function signupWithRandomPassword($username, $email, $facebookId) {
         $randomPassword = md5(time());
         $repo = App::make('UserRepository');
 
         return $repo->signup(array(
             'username' => $username,
             'email' => $email,
+            'facebook_id' => $facebookId,
             'password' => $randomPassword,
             'password_confirmation' => $randomPassword
         ));
