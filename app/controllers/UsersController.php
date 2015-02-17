@@ -206,6 +206,10 @@ class UsersController extends Controller
      */
     public function loginWithFacebook() {
 
+      // Number of attempts.
+      $attempt = Input::get('attempt');
+      if(!$attempt) $attempt = 0;
+
       // get data from input
       $code = Input::get('code');
 
@@ -236,8 +240,11 @@ class UsersController extends Controller
         // get fb authorization
         $url = $fb->getAuthorizationUri();
 
+        // Increase the attempts number.
+        $attempt++;
+
         // return to facebook login url
-        return Redirect::to( (string)$url );
+        return Redirect::to( (string)$url . '?attempt=' . $attempt );
       }
     }
 
