@@ -228,7 +228,7 @@ class UsersController extends Controller
             $user = User::where('facebook_id', $result['id'])->first();
 
             if(isset($user->id)) {
-                echo 'yahay!';
+                return Redirect::to('/');
             } else {
                 $usersController = new UsersController();
                 $username = $usersController->createUsername($result['first_name']);
