@@ -208,7 +208,6 @@ class UsersController extends Controller
 
       // Number of attempts.
       $attempt = Input::get('attempt');
-      if(!$attempt) $attempt = 'x';
 
       // get data from input
       $code = Input::get('code');
