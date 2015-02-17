@@ -256,6 +256,7 @@ class UsersController extends Controller
 
     public function createUsername($username) {
         $counter = 0;
+        $usernameToSave = $username;
 
         do {
             if($counter) {
