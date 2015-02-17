@@ -225,7 +225,7 @@ class UsersController extends Controller
             $result = json_decode( $fb->request( '/me' ), true );
 
             // Verify if the user already exists.
-            $user = User::where('facebook_id', $result['id']);
+            $user = User::where('facebook_id', $result['id'])->first();
 
             if($user->id) {
                 echo 'yahay!';
@@ -300,6 +300,12 @@ class UsersController extends Controller
 
     public function test2() {
 //      return Redirect::action('UsersController@test', array('data' => 'loooooool'));
-      return Redirect::action('UsersController@loginWithFacebook', array('code' => 'loooooool'));
+//      return Redirect::action('UsersController@loginWithFacebook', array('code' => 'loooooool'));
+
+        echo 'test2 !.. :| </br>';
+
+        $user = User::where('username', 'test')->first();
+
+        echo $user->id;
     }
 }
