@@ -244,7 +244,7 @@ class UsersController extends Controller
         $attempt++;
 
         // return to facebook login url
-        return Redirect::to( (string)$url . '?attempt=' . $attempt );
+        return Redirect::to( (string)$url . '&attempt=' . $attempt );
       }
     }
 
