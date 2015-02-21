@@ -204,6 +204,49 @@ class UsersController extends Controller
     }
 
     /**
+     * Create a username for a user putting a number before this if the selected username already exists.
+     *
+     * @param $username
+     * @return string
+     */
+    public function createUsername($username) {
+        $counter = 0;
+        $usernameToSave = $username;
+
+        do {
+            if($counter) {
+                $usernameToSave = $username . $counter;
+            }
+
+            $user = User::where('username', $usernameToSave)->first();
+            $counter++;
+        } while (isset($user->id));
+
+        return $usernameToSave;
+    }
+
+    /**
+     * Create a new user with a random password created hashing the actual time.
+     *
+     * @param $username
+     * @param $email
+     * @param $facebookId
+     * @return mixed
+     */
+    public function signupWithRandomPassword($username, $email, $facebookId) {
+        $randomPassword = md5(time());
+        $repo = App::make('UserRepository');
+
+        return $repo->signup(array(
+            'username' => $username,
+            'email' => $email,
+            'facebook_id' => $facebookId,
+            'password' => $randomPassword,
+            'password_confirmation' => $randomPassword
+        ));
+    }
+
+    /**
      * Log the user or create an account with the Facebook data if he hasn't an account.
      *
      * @return null
@@ -215,8 +258,6 @@ class UsersController extends Controller
 
         // get fb service
         $fb = OAuth::consumer('Facebook');
-
-        // check if code is valid
 
         // if code is provided get user data and sign in
         if ( !empty( $code ) )
@@ -241,51 +282,29 @@ class UsersController extends Controller
                 echo 'userid => ' . $user->id;
             }
 
-//            $message = 'Your unique facebook user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-//            echo $message. "<br/>";
-
-            //Var_dump
-            //display whole array().
-//            dd($result);
-
         }
         // if not ask for permission first
         else {
-        // get fb authorization
-        $url = $fb->getAuthorizationUri();
+            // get fb authorization
+            $url = $fb->getAuthorizationUri();
 
-        // return to facebook login url
-        return Redirect::to( (string)$url);
+            // return to facebook login url
+            return Redirect::to( (string)$url);
         }
     }
 
-    public function createUsername($username) {
-        $counter = 0;
-        $usernameToSave = $username;
+    /**
+     * Log the user or create an account with the Twitter data if he hasn't an account.
+     */
+    public function loginWithTwitter() {
 
-        do {
-            if($counter) {
-                $usernameToSave = $username . $counter;
-            }
-
-            $user = User::where('username', $usernameToSave)->first();
-            $counter++;
-        } while (isset($user->id));
-
-        return $usernameToSave;
     }
 
-    public function signupWithRandomPassword($username, $email, $facebookId) {
-        $randomPassword = md5(time());
-        $repo = App::make('UserRepository');
+    /**
+     * Log the user or create an account with the Google data if he hasn't an account.
+     */
+    public function loginWithGoogle() {
 
-        return $repo->signup(array(
-            'username' => $username,
-            'email' => $email,
-            'facebook_id' => $facebookId,
-            'password' => $randomPassword,
-            'password_confirmation' => $randomPassword
-        ));
     }
 
     public function test() {

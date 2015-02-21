@@ -40,6 +40,9 @@
             <div class="form-group">
               <button tabindex="3" type="submit" class="btn btn-lg btn-primary btn-block">{{{ Lang::get('confide::confide.login.submit') }}}</button>
               <a class="btn btn-lg btn-default btn-block" href="/register">Registrarse</a>
+                <a class="btn btn-lg btn-default btn-block" href="/users/loginWithFacebook"><i class="fa fa-facebook"></i> Ingresar con Facebook</a>
+                <a class="btn btn-lg btn-default btn-block" href="/users/loginWithTwitter"><i class="fa fa-twitter"></i> Ingresar con Twitter</a>
+                <a class="btn btn-lg btn-default btn-block" href="/users/loginWithGoogle"><i class="fa fa-google"></i> Ingresar con Google</a>
             </div>
           </fieldset>
         </form>

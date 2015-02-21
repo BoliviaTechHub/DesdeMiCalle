@@ -23,6 +23,8 @@ Route::get('logout', 'SessionsController@destroy');
 
 Route::get('users/admin', 'UsersController@admin');
 Route::get('users/loginWithFacebook', 'UsersController@loginWithFacebook');
+Route::get('users/loginWithTwitter', 'UsersController@loginWithTwitter');
+Route::get('users/loginWithGoogle', 'UsersController@loginWithGoogle');
 route::get('test', 'UsersController@test');
 route::get('test2', 'UsersController@test2');
 
