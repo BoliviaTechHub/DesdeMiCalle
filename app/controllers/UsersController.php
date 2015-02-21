@@ -232,6 +232,7 @@ class UsersController extends Controller
             $user = User::where('facebook_id', $result['id'])->first();
 
             if(isset($user->id)) {
+                Auth::loginUsingId($user->id);
                 return Redirect::to('/');
             } else {
                 $usersController = new UsersController();
