@@ -20,6 +20,8 @@ Route::resource('register', 'UsersController@create');
 Route::resource('sessions', 'SessionsController');
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
+
+Route::get('users/admin', 'UsersController@admin');
 Route::get('users/loginWithFacebook', 'UsersController@loginWithFacebook');
 route::get('test', 'UsersController@test');
 route::get('test2', 'UsersController@test2');

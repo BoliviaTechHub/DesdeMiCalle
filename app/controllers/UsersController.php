@@ -199,6 +199,10 @@ class UsersController extends Controller
         return Redirect::to('/');
     }
 
+    public function admin() {
+        return View::make('users.admin', array('users' => User::all()));
+    }
+
     /**
      * Log the user or create an account with the Facebook data if he hasn't an account.
      *
