@@ -689,6 +689,97 @@ display: none;
 .view-devices{
 display: inline-block !important;
 }
+/*switch styles*/
+.onoffswitch {
+    position: relative; 
+    width: 100px;
+    -webkit-user-select:none; 
+    -moz-user-select:none; 
+    -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; 
+    overflow: hidden; 
+    cursor: pointer;
+    border: 1px solid #3C4142; 
+    border-radius: 30px;
+}
+.onoffswitch-inner {
+    display: block; 
+    width: 200%; 
+    margin-left: -100%;
+    -moz-transition: margin 0.1s ease-in 0s;
+    -webkit-transition: margin 0.1s ease-in 0s;
+    -o-transition: margin 0.1s ease-in 0s; 
+    transition: margin 0.1s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; 
+    float: left; 
+    width: 50%; 
+    height: 30px; 
+    padding: 0; 
+    line-height: 30px;
+    font-size: 13px; 
+    color: white; 
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+.onoffswitch-inner:before {
+    content: "Activo";
+    padding-left: 10px;
+    background-color: #0C9AC1;
+    color: #FFFFFF;
+    border-radius: 30px 0 0 30px;
+}
+.onoffswitch-inner:after {
+    content: "Inactivo";
+    padding-right: 10px;
+    background-color: #EEEEEE; 
+    color: #999999;
+    text-align: right;
+    border-radius: 0 30px 30px 0;
+}
+.onoffswitch-switch {
+    display: block; 
+    width: 35px; 
+    margin: 0px;
+    background: #FFFFFF;
+    border: 1px solid #3C4142; 
+    border-radius: 30px;
+    position: absolute; 
+    top: 0; 
+    bottom: 0; 
+    right: 65px;
+    -moz-transition: all 0.1s ease-in 0s; 
+    -webkit-transition: all 0.1s ease-in 0s;
+    -o-transition: all 0.1s ease-in 0s; 
+    transition: all 0.1s ease-in 0s; 
+    background-image: -moz-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+    background-image: -webkit-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+    background-image: -o-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%); 
+    background-image: linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 80%);
+    box-shadow: 0 1px 1px white inset;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+.titulo{
+	border-bottom: 1px solid #fff;
+}
+.date-style{
+padding: 10px;
+margin-top: 25px;
+font-style: italic;
+}
 @media (min-width: 992px) and (max-width: 1199px) {
   .carousel-caption {
     right: 10%;
