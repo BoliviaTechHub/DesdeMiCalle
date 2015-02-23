@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Desde mi calle - ACM SIM</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+<body>
+    <div class="pre-loader">
+        <div class="load-con">
+            <span class="icon-location icon-big"></span>
+            <p>Un Momento por favor</p>
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <nav id="main-menu" class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="index.html" class="view-mobile logo-style"><img src="assets/img/icon.png"/> Desde mi Calle</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+        
+                <div class="collapse navbar-collapse navbar-left">
+                    <ul class="nav navbar-nav">
+                        <li class="view-devices"><a href="index.html"><span class="icon-location icon-medium"></span></a></li>
+                        <li class="active"><a href="reclamos.html">Ver Reclamos</a></li>
+                        <li><a href="#">Ver Obras Públicas</a></li>
+                        <li><a href="#">Pedir Información</a></li>
+                        <li>
+                          <form action="" method="get" id="search" class="search-form">            
+                            <input type="text" class="" name="k" data-default="100" placeholder="Buscar..."/><span class="icon-search icon-medium"></span>
+                          </form>
+                        </li>                        
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+
+                        <li><a class="btn btn-sm btn-info" href="#"><span class="icon-key2 icon-medium"></span> Ingresa</a></li>
+                        <li><a class="btn btn-sm btn-success" href="#"><span class="icon-clipboard icon-medium"></span> ¡Regístrate!</a></li> 
+                    </ul>
+                </div>
+            </div><!--/.container-->
+    </nav>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container-fluid">
+                <span>© 2015 SIM</span>
+                <div class="navbar-right nav-social">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#"><span class="icon-facebook2 icon-medium"></span></a></li>
+                        <li><a href="#"><span class="icon-twitter2 icon-medium"></span></a></li>
+                        <li><a href="#"><span class="icon-google-plus2 icon-medium"></span></a></li>
+                        <li><a href="#"><span class="icon-github4 icon-medium"></span></a></li>                         
+                    </ul>
+                </div>
+            </div><!--/.container-->
+    </nav>
+
+
+
+    <div id="wrapper">
+       
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+
+
+          <div id="sidebar-wrapper-content">
+                  <div class="section-title">
+                    <a class="btn btn-link" href="reclamos.html"><i class="icon-circle-left"></i> Volver</a><br/>
+                    <a class="btn btn-lg btn-clear"><i class="glyphicon glyphicon-thumbs-up icon-float"></i> Apoyo el Reclamo (5)</a><br/>
+                    <a class="btn btn-lg btn-clear"><i class="icon-bubbles icon-float"></i> Pedir informacion</a>
+                  </div>  
+                  <div class="row reclamo">
+                    <div class="col-md-2 text-right">
+                      <a class="link-map" href="#"><div class="img-reclamo basura"></div></a>
+                    </div>
+                    <div class="col-md-10">  
+                      <h3><a href="#">Lorem ipsum dolor sit amet, consectetuer elitereq</a> <small>Beto Cuevas</small></h3>
+                      <div><span class="badge success">Verificado</span><span> Febrero/28/2015 17:00</span></div>
+                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula</p>
+                      <p>Quiero compartir este reclamo en: <a href="#"><i class="icon-facebook2 icon-medium"></i></a></p>     
+                      <img class="img-responsive" src="assets/img/reclamo-img.jpg"/>                 
+                    </div>
+
+                  </div>
+
+          </div>
+
+
+
+
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <a href="#menu-toggle" class="btn-toogle" id="menu-toggle"><span class="icon-cross icon-medium"></span></a>
+
+            <div class="map">
+              
+              <!-- el mapa puede ir en cualquiere formato que manejes pero siempre al 100% de altura y ancho-->
+              <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en-US&amp;geocode=&amp;q=cochabamba+bolivia&amp;aq=&amp;sll=40.649987,-73.950002&amp;sspn=0.060301,0.132093&amp;gl=US&amp;ie=UTF8&amp;hq=&amp;hnear=Cochabamba,+Cercado,+Cochabamba+Dept,+Bolivia&amp;t=m&amp;z=12&amp;ll=-17.383333,-66.166667&amp;output=embed"></iframe>
+
+
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/retina-1.1.0.js"></script>
+    <script src="assets/js/jquery.prettyPhoto.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- custom scrollbar plugin -->
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        appMaster.preLoader();
+    });
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    (function($){
+      $(window).load(function(){
+        
+        /* all available option parameters with their default values */
+        $("#sidebar-wrapper-content").mCustomScrollbar({
+          axis:"y",
+          scrollbarPosition:"inside",        
+          theme:"light"
+        });
+        
+      });
+    })(jQuery);
+    </script>
+
+</body>
+</html>
+
