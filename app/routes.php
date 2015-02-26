@@ -13,27 +13,28 @@
 
 Route::get('/', function() {	return View::make('home'); });
 
-// This were commented because now the Confide routes are used.
-//Route::resource('users', 'UsersController');
-Route::resource('register', 'UsersController@create');
-
-Route::resource('sessions', 'SessionsController');
-Route::get('login', 'SessionsController@create');
-Route::get('logout', 'SessionsController@destroy');
-
+Route::get('register', 'UsersController@create');
 Route::get('users/admin', 'UsersController@admin');
+Route::get('users/show/{username}', 'UsersController@show');
+Route::get('users/edit/{username}', 'UsersController@edit');
+Route::post('users/update', array('as' => 'users.update', 'uses' => 'UsersController@update'));
+Route::post('users/delete', array('as' => 'users.delete', 'uses' => 'UsersController@delete'));
+
 Route::get('users/loginWithFacebook', 'UsersController@loginWithFacebook');
 Route::get('users/loginWithTwitter', 'UsersController@loginWithTwitter');
 Route::get('users/loginWithGoogle', 'UsersController@loginWithGoogle');
 route::get('test', 'UsersController@test');
 route::get('test2', 'UsersController@test2');
 
+Route::resource('sessions', 'SessionsController');
+Route::get('login', 'SessionsController@create');
+Route::get('logout', 'SessionsController@destroy');
+
 Route::resource('claims', 'ClaimsController');
 
 Route::resource('publicWorks', 'PublicWorksController');
 
 Route::resource('informationRequests', 'InformationRequestsController');
-//
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');

@@ -199,6 +199,67 @@ class UsersController extends Controller
         return Redirect::to('/');
     }
 
+    /**
+     * Display de specified resource.
+     *
+     * @param $username
+     * @return mixed
+     */
+    public function show($username) {
+        return View::make('users.show', ['user' => $user = User::whereUsername($username)->first()]);
+    }
+
+    /**
+     * Display the form for edit an user.
+     *
+     * @param $username
+     * @return mixed
+     */
+    public function edit($username) {
+        return View::make('users.edit', ['user' => User::whereUsername($username)->first()]);
+    }
+
+    /**
+     * Update the data of an User object.
+     *
+     * @return mixed
+     */
+    public function update() {
+        $user = User::find(Input::get('id'));
+
+        $validator = Validator::make(
+            array(
+                'username' => Input::get('username'),
+                'email' => Input::get('email')
+            ),
+            array(
+                'username' => 'required|unique:users,username,' . $user->id,
+                'email' => 'required|email|unique:users,email,' . $user->id
+            )
+        );
+
+        if($validator->fails()) {
+            return Redirect::back()->withErrors($validator->messages());
+        }
+
+        $user->username = Input::get('username');
+        $user->email = Input::get('email');
+        $user->name = Input::get('name');
+        $user->lastName = Input::get('lastName');
+        $user->save();
+
+        return Redirect::to('/users/show/' . $user->username);
+    }
+
+    public function delete() {
+        echo ':O' . Input::get('id');
+    }
+
+    /**
+     * Users admin page, that allow to the admin users edit and delete any user in the system.
+     *
+     * @return mixed
+     */
     public function admin() {
         return View::make('users.admin', array('users' => User::all()));
     }
@@ -310,6 +371,14 @@ class UsersController extends Controller
     public function test() {
         echo 'test!.. :3 </br>';
 
+        $d1 = mktime(0, 0, 0, 1, 1, 1900);
+//        $d2 = mktime(0, 0, 0, 12, 31, 2038);
+        $d2 = mktime(0, 0, 0, 12, 31, 2030);
+        $datediff = $d2 - $d1;
+        echo floor($datediff/(60*60*24));
+//        echo floor(($d2 - $d1)/(60*60*24));
+
+        /*
         $randomPassword = md5(time());
         $input = array(
             'username' => 'lolz',
@@ -322,6 +391,7 @@ class UsersController extends Controller
 
         echo 'randomPassword =>' . $randomPassword . '</br>';
         echo 'userid => ' . $user->id;
+        */
     }
 
     public function test2() {

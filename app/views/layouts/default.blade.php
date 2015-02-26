@@ -79,5 +79,10 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script type="text/javascript" src="{{asset('vendor/bootstrap/assets/ie10-viewport-bug-workaround.js')}}"></script>
 
+<!-- My JS files
+================================================== -->
+<script type="text/javascript" src="{{asset('js/Users.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/Components/ModalConfirmation.js')}}"></script>
+
 </body>
 </html>
