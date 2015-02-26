@@ -6,14 +6,19 @@
     "use strict";
     $(document).ready(function () {
         $('.delete-user').click(function () {
-//            alert($(this).data('id'));
-            $.ajax({
-                type: 'post',
-                url: 'delete',
-                data: {
-                    id: $(this).data('id')
-                }
-            });
+            var ans = confirm('Realmente quiere borrar al usuario ' + $(this).data('username'));
+            if (ans == true) {
+                $.ajax({
+                    type: 'post',
+                    url: 'delete',
+                    data: {
+                        id: $(this).data('id')
+                    },
+                    success: function () {
+                        location.reload();
+                    }
+                });
+            }
         });
     });
 })(jQuery);

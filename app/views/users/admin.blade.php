@@ -30,7 +30,7 @@
                 <td>{{$user->created_at}}</td>
                 <td>{{$user->updated_at}}</td>
                 <td><a class="btn btn-xs btn-default" href="/users/edit/{{$user->username}}"><i class="fa fa-edit"></i></a></td>
-                <td><a class="btn btn-xs btn-primary delete-user" href="javascript:void(0)" data-id="{{$user->id}}"><i class="fa fa-remove"></i></a></td>
+                <td><a class="btn btn-xs btn-primary delete-user" href="javascript:void(0)" data-id="{{$user->id}}" data-username="{{$user->username}}"><i class="fa fa-remove"></i></a></td>
             </tr>
             @endforeach
             </tbody>

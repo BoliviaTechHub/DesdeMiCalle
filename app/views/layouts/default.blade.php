@@ -70,10 +70,14 @@
 
 @yield('content')
 
+<!-- jQuery
+================================================== -->
+<script type="text/javascript" src="{{asset('vendor/jQuery/jquery-2.1.3.min.js')}}"></script>
+
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{asset('vendor/jQuery/jquery-2.1.3.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/bootstrap/assets/docs.min.js')}}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

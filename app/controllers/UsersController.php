@@ -252,7 +252,8 @@ class UsersController extends Controller
     }
 
     public function delete() {
-        echo ':O' . Input::get('id');
+        $user = User::find(Input::get('id'));
+        $user->delete();
     }
 
     /**
