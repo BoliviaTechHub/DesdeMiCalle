@@ -15,6 +15,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{{asset('css/icons.css')}}" rel="stylesheet">
+  <link href="{{asset('css/jquery.mCustomScrollbar.css')}}" rel="stylesheet">
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
 
   <!-- Font Awesome core CSS -->
@@ -32,6 +33,17 @@
 </head>
 <body id="bg-image">
 
+<div class="pre-loader">
+    <div class="load-con">
+        <span class="icon-location icon-big"></span>
+        <p>Un Momento por favor</p>
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+</div>
 <nav id="main-menu" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -70,7 +82,6 @@
         </div>
     </div><!--/.container-->
 </nav>
-
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div class="container-fluid">
         <span>© 2015 SIM</span>
@@ -111,6 +122,9 @@
 <script type="text/javascript" src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
 
+<!-- custom scrollbar plugin -->
+<script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+
 <script>
     $(document).ready(function() {
         appMaster.preLoader();
@@ -119,7 +133,29 @@
         interval: 10000 //changes the speed
     });
 </script>
+<script>
+    $(document).ready(function() {
+        appMaster.preLoader();
+    });
 
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    (function($){
+        $(window).load(function(){
+
+            /* all available option parameters with their default values */
+            $("#sidebar-wrapper-content").mCustomScrollbar({
+                axis:"y",
+                scrollbarPosition:"inside",
+                theme:"light"
+            });
+
+        });
+    })(jQuery);
+</script>
 
 </body>
 </html>

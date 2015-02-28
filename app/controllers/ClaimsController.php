@@ -20,15 +20,15 @@ class ClaimsController extends \BaseController {
 	 */
 	public function index()
 	{
-    $claims = $this->claim->all();
-    $categories = ClaimWorkCategory::all();
-    $neighborhoods = Neighborhood::all();
+        $claims = $this->claim->all()->reverse();
+        $categories = ClaimWorkCategory::all();
+        $neighborhoods = Neighborhood::all();
 
-    return View::make('claims.index', [
-      'claims' => $claims,
-      'categories' => $categories,
-      'neighborhoods' => $neighborhoods
-    ]);
+        return View::make('claims.index', [
+            'claims' => $claims,
+            'categories' => $categories,
+            'neighborhoods' => $neighborhoods
+        ]);
 	}
 
 
