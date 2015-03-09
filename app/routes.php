@@ -31,6 +31,7 @@ Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 
 Route::resource('claims', 'ClaimsController');
+Route::post('claims/show', 'ClaimsController@show');
 
 Route::resource('publicWorks', 'PublicWorksController');
 

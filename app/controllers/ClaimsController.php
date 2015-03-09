@@ -18,16 +18,18 @@ class ClaimsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
+	public function index()	{
         $claims = $this->claim->all()->reverse();
-        $categories = ClaimWorkCategory::all();
-        $neighborhoods = Neighborhood::all();
+
+        foreach ($claims as $claim) {
+            $user = User::find($claim->userId);
+            $claim->user_name = $user->name . ' ' . $user->lastName;
+        }
 
         return View::make('claims.index', [
             'claims' => $claims,
-            'categories' => $categories,
-            'neighborhoods' => $neighborhoods
+            'categories' => ClaimWorkCategory::all(),
+            'neighborhoods' => Neighborhood::all()
         ]);
 	}
 
@@ -69,13 +71,15 @@ class ClaimsController extends \BaseController {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
-	 * @return Response
+	 * @return mixed
 	 */
-	public function show($id)
-	{
-    $claim = $this->claim->whereId($id)->first();
-    return View::make('claims.show', ['claim' => $claim]);
+    public function show($id) {
+        $claim = Claim::find($id);
+        $user = User::find($claim->userId);
+        return View::make('claims.show', [
+            'claim' => $claim,
+            'user_name' => $user->name . ' ' . $user->lastName
+        ]);
 	}
 
 

@@ -72,10 +72,10 @@
         <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
                 @if(!Auth::check())
-                <li><a class="btn btn-sm btn-info" href="users/login"><span class="icon-key2 icon-medium"></span> Ingresa</a></li>
-                <li><a class="btn btn-sm btn-success" href="register"><span class="icon-clipboard icon-medium"></span> ¡Regístrate!</a></li>
+                <li><a class="btn btn-sm btn-info" href="/users/login"><span class="icon-key2 icon-medium"></span> Ingresa</a></li>
+                <li><a class="btn btn-sm btn-success" href="/register"><span class="icon-clipboard icon-medium"></span> ¡Regístrate!</a></li>
                 @else
-                <li><a class="btn btn-sm btn-info" href="users/show/{{Auth::user()->username}}"><i class="fa fa-user"></i> Hola! {{Auth::user()->username}}</a></li>
+                <li><a class="btn btn-sm btn-info" href="/users/show/{{Auth::user()->username}}"><i class="fa fa-user"></i> Hola! {{Auth::user()->username}}</a></li>
                 <li><a class="btn btn-sm btn-success" href="/logout"><i class="fa fa-sign-out"></i> Salir</a></li>
                 @endif
             </ul>
@@ -117,10 +117,16 @@
 <!-- My JS files
 ================================================== -->
 <script type="text/javascript" src="{{asset('js/Users.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/Claims.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/Components/ModalConfirmation.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/retina-1.1.0.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
+
+<!-- Open Layers library for Open Street Maps -->
+================================================== -->
+<script type="text/javascript" src="{{asset('js/openLayers/ol.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/OSMIntegration.js')}}"></script>
 
 <!-- custom scrollbar plugin -->
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
