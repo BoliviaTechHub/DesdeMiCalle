@@ -5,7 +5,7 @@
     "use strict";
     $(document).ready(function () {
 
-        // TODO View the Claim with AJAX
+        // TODOO View the Claim with AJAX
 //        $('.claim-title').click(function () {
 //            var $sidebarWrapperContent = $('#sidebar-wrapper-content');
 //            $.ajax({
@@ -20,5 +20,33 @@
 //                }
 //            });
 //        });
+
+
+        // Design of the Create Claim Page.
+        appMaster.preLoader();
+
+        $('#reclamos-descripcion a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+        // Rootwizard component
+        $('#rootwizard').bootstrapWizard({
+            onTabShow: function (tab, navigation, index) {
+                var $total = navigation.find('li').length,
+                    $current = index + 1;
+
+                // If it's the last tab then hide the last button and show the finish instead
+                if ($current >= $total) {
+                    $('#nextButton').hide();
+                    $('#lastButton').show().removeClass('disabled');
+                } else {
+                    $('#nextButton').show();
+                    $('#lastButton').hide().addClass('disabled');
+                }
+
+                return 0;
+            }
+        });
     });
 })(jQuery);

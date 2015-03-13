@@ -122,8 +122,9 @@
 <script type="text/javascript" src="{{asset('js/retina-1.1.0.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/jquery.bootstrap.wizard.js')}}"></script>
 
-<!-- Open Layers library for Open Street Maps -->
+<!-- Open Layers library for Open Street Maps
 ================================================== -->
 <script type="text/javascript" src="{{asset('js/openLayers/ol.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/OSMIntegration.js')}}"></script>
