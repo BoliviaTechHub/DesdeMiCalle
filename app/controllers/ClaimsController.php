@@ -56,15 +56,20 @@ class ClaimsController extends \BaseController {
 	 */
 	public function store()
 	{
-    $claim = new Claim();
-    $claim->title = Input::get('title');
-    $claim->description = Input::get('description');
-    $claim->userId = 1;
-    $claim->neighborhoodId = 1;
-    $claim->claimWorkCategoryId = 1;
-    $claim->save();
+        $claim = new Claim();
+        $claim->title = Input::get('title');
+        $claim->description = Input::get('description');
+        $claim->userId = 1;
+        $claim->neighborhoodId = 1;
+        $claim->claimWorkCategoryId = 1;
 
-    return $this->index();
+        if(!strlen($claim->title)) {
+            $claim->title = substr($claim->description, 0, 25) . '...';
+        }
+
+        $claim->save();
+
+        return $this->index();
 	}
 
 

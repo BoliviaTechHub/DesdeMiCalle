@@ -2,7 +2,7 @@
 @section('content')
 
 <div id="main-content">
-{{ Form::open( ['route' => 'claims.store', 'class' => 'form-horizontal'] ) }}
+    {{ Form::open( ['route' => 'claims.store', 'class' => 'form-horizontal'] ) }}
     <div id="rootwizard">
     <div class="navbar">
         <div class="navbar-inner">
@@ -236,7 +236,10 @@
         <ul class="pager wizard">
             <li class="previous first" style="display:none;"><a href="#"><i class="icon-circle-left"></i> Inicio</a></li>
             <li class="previous"><a href="#"><i class="icon-circle-left"></i> Volver</a></li>
-            <li id="lastButton" class="next last" style="display:none;"><a href="javascript:void(0)">Finalizar Reclamo <i class="icon-checkmark"></i> </a></li>
+            {{--<li id="lastButton" class="next last" style="display:none;"><a href="javascript:void(0)">Finalizar Reclamo <i class="icon-checkmark"></i> </a></li>--}}
+            {{--<li id="lastButton" class="next last" style="display:none;"><a href="javascript:void(0)">{{ Form::submit('Finalizar Reclamo', ['class' => '']) }}<i class="icon-checkmark"></i> </a></li>--}}
+            <li id="lastButton" class="next last" style="display:none;"><a href="javascript:void(0)">{{ Form::submit('Finalizar Reclamo', ['class' => '']) }}<i class="icon-checkmark"></i> </a></li>
+            {{--{{ Form::submit('Finalizar Reclamo', ['class' => '']) }}--}}
             <li id="nextButton" class="next"><a href="javascript:void(0)">Siguiente <i class="icon-circle-right"></i> </a></li>
         </ul>
     </div>
