@@ -7,12 +7,15 @@
  */
 
 class ClaimWorkCategory extends Eloquent {
-  /**
-   * The database table used by the model.
-   *
-   * @var string
-   */
+      /**
+       * The database table used by the model.
+       *
+       * @var string
+       */
 
-  protected $table = 'claimWorkCategory';
+    protected $table = 'claimWorkCategory';
+
+    // This fields can be mass assigned.
+    protected $fillable = ['name', 'parentId', 'status', 'class'];
 
 }

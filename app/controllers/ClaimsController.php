@@ -2,28 +2,30 @@
 
 class ClaimsController extends \BaseController {
 
-  protected $claim;
+    protected $claim;
 
-  /**
-   * Claim Constructor.
-   *
-   * @param Claim $claim
-   */
-  public function __construct(Claim $claim) {
+    /**
+    * Claim Constructor.
+    *
+    * @param Claim $claim
+    */
+    public function __construct(Claim $claim) {
     $this->claim = $claim;
-  }
+    }
 
-  /**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()	{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()	{
         $claims = $this->claim->all()->reverse();
 
         foreach ($claims as $claim) {
             $user = User::find($claim->userId);
             $claim->user_name = $user->name . ' ' . $user->lastName;
+
+            $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
         }
 
         return View::make('claims.index', [
@@ -31,53 +33,50 @@ class ClaimsController extends \BaseController {
             'categories' => ClaimWorkCategory::all(),
             'neighborhoods' => Neighborhood::all()
         ]);
-	}
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-    if(Auth::check()) {
-      return View::make('claims.create');
-    } else {
-      return Redirect::to('login');
     }
-	}
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        if (Auth::check()) {
+            return View::make('claims.create', ['categories' => ClaimWorkCategory::all()]);
+        } else {
+            return Redirect::to('login');
+        }
+    }
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
         $claim = new Claim();
         $claim->title = Input::get('title');
         $claim->description = Input::get('description');
-        $claim->userId = 1;
+        $claim->userId = Auth::id();
         $claim->neighborhoodId = 1;
-        $claim->claimWorkCategoryId = 1;
+        $claim->claimWorkCategoryId = Input::get('categoryId');
 
+        // Put as name the first 15 characters of the description.
         if(!strlen($claim->title)) {
             $claim->title = substr($claim->description, 0, 25) . '...';
         }
 
         $claim->save();
-
         return $this->index();
-	}
+    }
 
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @return mixed
-	 */
+    /**
+     * Display the specified resource.
+     *
+     * @return mixed
+     */
     public function show($id) {
         $claim = Claim::find($id);
         $user = User::find($claim->userId);
@@ -85,43 +84,48 @@ class ClaimsController extends \BaseController {
             'claim' => $claim,
             'user_name' => $user->name . ' ' . $user->lastName
         ]);
-	}
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id)
+    {
+        //
+    }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    public function getParentCategoryId ($claimId) {
+        $claim = Claim::find($claimId);
+        $category = ClaimWorkCategory::find($claim->claimWorkCategoryId);
+        while($category->parentId != 0) {
+            $category = ClaimWorkCategory::find($category->parentId);
+        }
 
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
-
+        return $category->id;
+    }
 }

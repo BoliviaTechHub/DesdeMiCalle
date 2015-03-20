@@ -11,9 +11,10 @@ use Zizaco\Confide\ConfideUserInterface;
 class User extends Eloquent implements ConfideUserInterface {
 
 //  use UserTrait, RemindableTrait, ConfideUser;
-  use ConfideUser;
+    use ConfideUser;
 
-//  protected $fillable = ['username', 'email', 'password', 'name', 'lastName'];
+    // This fields can be mass assigned.
+    protected $fillable = ['username', 'email', 'password', 'name', 'lastName'];
 //
 //  public static $rules = [
 //    'username' => 'required|unique:users',
