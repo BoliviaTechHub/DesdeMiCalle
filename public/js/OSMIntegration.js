@@ -119,8 +119,8 @@
             map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text. Attribution overload
 
 
-            var london = new L.LatLng(-16.51361, -68.12447); // geographical point (longitude and latitude)
-            map.setView(london, 14);
+            var lapaz = new L.LatLng(-16.51361, -68.12447); // geographical point (longitude and latitude)
+            map.setView(lapaz, 17);
             map.on('click', onMapClick);
         }
 
