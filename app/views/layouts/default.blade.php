@@ -16,7 +16,11 @@
   <!-- Custom styles for this template -->
   <link href="{{asset('css/icons.css')}}" rel="stylesheet">
   <link href="{{asset('css/jquery.mCustomScrollbar.css')}}" rel="stylesheet">
-  <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+
+    <!-- Leaflet CSS, Fuck you OL
+    ------>
+    <link href="{{asset('leaflet/leaflet.css')}}" rel="stylesheet">
 
   <!-- Font Awesome core CSS -->
   <link type="text/css" rel="stylesheet" href="{{asset('vendor/font-awesome-4.2.0/css/font-awesome.min.css')}}">
@@ -127,8 +131,13 @@
 <!-- Open Layers library for Open Street Maps
 ================================================== -->
 {{--<script type="text/javascript" src="{{asset('js/openLayers/ol.js')}}"></script>--}}
-<script type="text/javascript" src="{{asset('OpenLayers/OpenLayers.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('OpenLayers/OpenLayers.js')}}"></script>--}}
+
+<!-- Fuck You Open Layers
+================================================== -->
 <script type="text/javascript" src="{{asset('js/OSMIntegration.js')}}"></script>
+<script type="text/javascript" src="{{asset('leaflet/leaflet.js')}}"></script>
+
 
 <!-- custom scrollbar plugin -->
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>

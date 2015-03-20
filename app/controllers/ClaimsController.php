@@ -62,6 +62,8 @@ class ClaimsController extends \BaseController {
         $claim->userId = Auth::id();
         $claim->neighborhoodId = 1;
         $claim->claimWorkCategoryId = Input::get('categoryId');
+        $claim->latitude = Input::get('latitude');
+        $claim->longitude = Input::get('longitude');
 
         // Put as name the first 15 characters of the description.
         if(!strlen($claim->title)) {

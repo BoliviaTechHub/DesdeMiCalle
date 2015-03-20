@@ -57,17 +57,15 @@
                 </div>
             </div>
             <div class="tab-pane" id="tab2">
-                <p><input type='text' name='name' id='name' placeholder='Enter Your Name'>  para que veas como valida el wizard esta es la web http://vadimg.com/twitter-bootstrap-wizard-example/#demo</p>
                 <div class="row">
                     <div class="col-sm-8">
-                        <label><U></U><bica></bica> tu reclamo <e></e>n el mapa</label>
-                        <div class="map">
-                            <!-- el mapa puede ir en cualquiere formato que manejes pero siempre al 100% de altura y ancho-->
-                            <!--                <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en-US&amp;geocode=&amp;            q=cochabamba+bolivia&amp;aq=&amp;sll=40.649987,-73.950002&amp;sspn=0.060301,0.132093&amp;gl=US&amp;ie=UTF8&amp;hq=&amp;hnear=Cochabamba,+Cercado,+Cochabamba+Dept,+Bolivia&amp;t=m&amp;z=12&amp;            ll=-17.383333,-66.166667&amp;output=embed"></iframe>-->
-                        </div>
+                        <label>Ubica tu reclamo en el mapa</label>
+                        <div id="map" style="width: 600px; height: 400px"></div>
+                        <input id="latitude" type="hidden" name="latitude" value="0">
+                        <input id="longitude" type="hidden" name="longitude" value="0">
                     </div>
                     <div class="col-sm-4">
-                        <label>¿Tienes <alg></alg><un></un>a fotografia?</label>
+                        <label>¿Tienes alguna fotografia?</label>
                     </div>
                 </div>
             </div>
