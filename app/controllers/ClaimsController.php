@@ -119,6 +119,12 @@ class ClaimsController extends \BaseController {
         //
     }
 
+    /**
+     * Given the id of a Claim, returns the id of his parent category.
+     *
+     * @param $claimId
+     * @return mixed
+     */
     public function getParentCategoryId ($claimId) {
         $claim = Claim::find($claimId);
         $category = ClaimWorkCategory::find($claim->claimWorkCategoryId);

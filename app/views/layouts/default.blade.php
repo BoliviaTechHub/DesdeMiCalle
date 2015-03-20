@@ -126,7 +126,8 @@
 
 <!-- Open Layers library for Open Street Maps
 ================================================== -->
-<script type="text/javascript" src="{{asset('js/openLayers/ol.js')}}"></script>
+{{--<script type="text/javascript" src="{{asset('js/openLayers/ol.js')}}"></script>--}}
+<script type="text/javascript" src="{{asset('OpenLayers/OpenLayers.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/OSMIntegration.js')}}"></script>
 
 <!-- custom scrollbar plugin -->
