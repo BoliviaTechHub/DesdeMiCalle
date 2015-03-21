@@ -51,7 +51,7 @@
 <nav id="main-menu" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="index.html" class="view-mobile logo-style"><img src="{{asset('images/icon.png')}}"/> Desde mi Calle</a>
+            <a href="/" class="view-mobile logo-style"><img src="{{asset('images/icon.png')}}"/> Desde mi Calle</a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
