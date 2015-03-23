@@ -24,7 +24,7 @@
                     <div><span class="badge success">Verificado</span><span> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</span></div>
                     <p>{{$claim->description}}</p>
 <!--                    <p>Quiero compartir este reclamo en: <a href="javascript:void(0)"><i class="icon-facebook2 icon-medium"></i></a></p>-->
-<!--                    <img class="img-responsive" src="assets/img/reclamo-img.jpg"/>-->
+                    <img class="img-responsive" src="/{{$claim->image_url}}"/>
                 </div>
 
             </div>

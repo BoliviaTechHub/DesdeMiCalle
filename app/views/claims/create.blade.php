@@ -2,7 +2,7 @@
 @section('content')
 
 <div id="main-content">
-    {{ Form::open( ['route' => 'claims.store', 'class' => 'form-horizontal'] ) }}
+    {{ Form::open( ['route' => 'claims.store', 'class' => 'form-horizontal', 'files' => true] ) }}
     <div id="rootwizard">
         <div class="navbar">
             <div class="navbar-inner">
@@ -66,6 +66,7 @@
                     </div>
                     <div class="col-sm-4">
                         <label>¿Tienes alguna fotografia?</label>
+                        {{ Form::file('image') }}
                     </div>
                 </div>
             </div>

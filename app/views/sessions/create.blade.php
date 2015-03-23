@@ -13,8 +13,8 @@
           <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
           <fieldset>
             <div class="form-group">
-              <label for="email">{{{ Lang::get('confide::confide.e_mail') }}}</label>
-              <input class="form-control" tabindex="1" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
+              <label for="email">Correo Electrónico o Nombre de Usuario</label>
+              <input class="form-control" tabindex="1" placeholder="Correo Electrónico o Nombre de Usuario" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
             </div>
             <div class="form-group">
               <label for="password">

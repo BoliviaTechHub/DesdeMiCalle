@@ -25,3 +25,6 @@ Thumbs.db
 
 ## Social Plugins config file.
 app/config/packages/artdarek/oauth-4-laravel/config.php
+
+## Images uploaded folder
+public/images/uploaded/claims/*
