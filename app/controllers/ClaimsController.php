@@ -75,8 +75,13 @@ class ClaimsController extends \BaseController {
         // The name of the file is created in this way to avoid repetitions.
         // user_id + claim_id + timestamp
         $file_name = Auth::id() . $claim->id . time() . '.' . Input::file('image')->getClientOriginalExtension();
-        Input::file('image')->move('public/images/uploaded/claims/', $file_name);
-        $claim->image_url = 'images/uploaded/claims/' . $file_name;
+
+        // Only for test in the server.
+//        $claimsImagesFolder = 'images/uploaded/claims/';
+        $claimsImagesFolder = '';
+
+        Input::file('image')->move('public/' . $claimsImagesFolder, $file_name);
+        $claim->image_url = $claimsImagesFolder . $file_name;
         $claim->save();
 
         return $this->index();
