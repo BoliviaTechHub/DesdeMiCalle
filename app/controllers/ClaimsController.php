@@ -84,7 +84,11 @@ class ClaimsController extends \BaseController {
         $claim->image_url = $claimsImagesFolder . $file_name;
         $claim->save();
 
-        return $this->index();
+        echo '<pre>';
+        print_r(Input::all());
+        echo '</pre>';
+
+//        return $this->index();
     }
 
     /**
