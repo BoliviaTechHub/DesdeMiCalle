@@ -80,13 +80,24 @@ class ClaimsController extends \BaseController {
 //        $claimsImagesFolder = 'images/uploaded/claims/';
         $claimsImagesFolder = '';
 
-        Input::file('image')->move('public/' . $claimsImagesFolder, $file_name);
+        $file = Input::file('image');
+        $uploadSuccess = Input::file('image')->move('public/' . $claimsImagesFolder, $file_name);
         $claim->image_url = $claimsImagesFolder . $file_name;
         $claim->save();
 
         echo '<pre>';
         print_r(Input::all());
         echo '</pre>';
+
+         if($uploadSuccess) {
+//             echo 'Destination: ' . $destination . '</br>';
+//             echo 'Filename: ' . $filename . '</br>';
+             echo 'Extension: ' . $file->getClientOriginalExtension() . '</br>';
+             echo 'Original name: ' . $file->getClientOriginalName() . '</br>';
+             echo 'Real path: ' . $file->getRealPath() . '</br>';
+         } else {
+             echo '</br>' . ':O .|.' . '</br>';
+         }
 
 //        return $this->index();
     }
