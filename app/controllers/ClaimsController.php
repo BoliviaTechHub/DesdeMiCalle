@@ -82,7 +82,7 @@ class ClaimsController extends \BaseController {
 
 //        Input::file('image')->move('public/' . $claimsImagesFolder, $file_name);
         Input::file('image')->move($claimsImagesFolder, $file_name);
-        $claim->image_url = $claimsImagesFolder . $file_name;
+        $claim->image_url = $file_name;
         $claim->save();
 
         return $this->index();
