@@ -64,8 +64,8 @@
             <ul class="nav navbar-nav">
                 <li class="active view-devices"><a href="/"><span class="icon-location icon-medium"></span></a></li>
                 <li><a href="/claims">Ver Reclamos</a></li>
-                <li><a href="/publicWorks">Ver Obras Públicas</a></li>
-                <li><a href="/informationRequests">Pedir Información</a></li>
+                {{--<li><a href="/publicWorks">Ver Obras Públicas</a></li>--}}
+                {{--<li><a href="/informationRequests">Pedir Información</a></li>--}}
                 <li>
                     <form action="" method="get" id="search" class="search-form">
 <!--                        <input type="text" class="" name="k" data-default="100" placeholder="Buscar..."/><span class="icon-search icon-medium"></span>-->
