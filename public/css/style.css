@@ -380,13 +380,14 @@ font-family: 'permanent_markerregular';
 line-height: 20px;
 }
 #main-content{
-position: absolute;
-padding: 0;
-right: 0;
-bottom: 32px;
-top: 62px;
-left: 0px;
-color: #fff;
+    position: absolute;
+    padding: 0;
+    right: 0;
+    bottom: 32px;
+    top: 62px;
+    left: 0px;
+    color: #fff;
+    overflow: auto;
 }
 #bg-image{
 background-image: url('../images/slide/1.jpg');

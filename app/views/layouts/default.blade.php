@@ -91,10 +91,10 @@
         <span>Desarrollado por <br> ACM - SIM 2015</span>
         <div class="navbar-right nav-social">
             <ul class="nav navbar-nav">
-                <li><a href="#"><span class="icon-facebook2 icon-medium"></span></a></li>
-                <li><a href="#"><span class="icon-twitter2 icon-medium"></span></a></li>
-                <li><a href="#"><span class="icon-google-plus2 icon-medium"></span></a></li>
-                <li><a href="https://github.com/BoliviaTechHub/DesdeMiCalle"><span class="icon-github4 icon-medium"></span></a></li>
+                <li><a href="https://www.facebook.com/pages/Desde-Mi-Calle/987236891288482" target="_blank"><span class="icon-facebook2 icon-medium"></span></a></li>
+                <li><a href="https://twitter.com/desdemicalle" target="_blank"><span class="icon-twitter2 icon-medium"></span></a></li>
+                <li><a href="https://plus.google.com/103308417766830369471" target="_blank"><span class="icon-google-plus2 icon-medium"></span></a></li>
+                <li><a href="https://github.com/BoliviaTechHub/DesdeMiCalle" target="_blank"><span class="icon-github4 icon-medium"></span></a></li>
             </ul>
         </div>
     </div><!--/.container-->
