@@ -49,7 +49,7 @@
                         @endforeach
                     @endif
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">¿Algo mas que quieras decir?</label>
+                        <label class="col-sm-2 control-label">Descríbenos el problema</label>
                         <div class="col-sm-10">
                             {{ Form::textarea('description', null, ['class' => '', 'placeholder' => 'Descripción', 'rows' => '4', 'cols' => '50']) }}
                         </div>

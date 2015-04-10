@@ -88,7 +88,7 @@
 </nav>
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div class="container-fluid">
-        <span>Desarrollado por ACM - SIM 2015</span>
+        <span>Desarrollado por <br> ACM - SIM 2015</span>
         <div class="navbar-right nav-social">
             <ul class="nav navbar-nav">
                 <li><a href="#"><span class="icon-facebook2 icon-medium"></span></a></li>

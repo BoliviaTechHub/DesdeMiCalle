@@ -1,12 +1,3 @@
-/*
- * Author: Carlos Alvarez
- * URL: http://alvarez.is
- *
- * Theme Name: Basic
- * URL: http://blacktie.co
- * Version: 1.0
- */
-
 /*	################################################################
 	1. GENERAL STRUCTURES
 ################################################################# */
@@ -849,6 +840,16 @@ font-style: italic;
 .table td a{
     padding: 5px 10px;
 }
+
+.reclamo .img-responsive {
+  width: 95%;
+  margin: auto;
+}
+
+.navbar-fixed-bottom .container-fluid>span br{
+    display: none;
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
   .carousel-caption {
     right: 10%;
@@ -860,7 +861,7 @@ font-style: italic;
 	left: 10%;
 	padding-bottom: 30px;
 	}
-}  
+}
 
 @media (max-width: 768px) { 
 	.navbar-inverse {
@@ -938,10 +939,15 @@ font-style: italic;
 	padding: 10px;	
 	}
 	.navbar-fixed-bottom .container-fluid>span {
-	line-height: 50px;
-	display: block;
-	float: left;
+        line-height: 15px;
+        display: block;
+        float: left;
+        padding-top: 5px;
+        word-wrap: normal;
 	}
+    .navbar-fixed-bottom .container-fluid>span br{
+        display: inline-block;
+    }
 	.navbar-fixed-top {
 	top: 0px;
 	padding: 0;
