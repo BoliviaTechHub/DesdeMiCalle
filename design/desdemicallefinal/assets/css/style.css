@@ -396,6 +396,7 @@ bottom: 32px;
 top: 62px;
 left: 0px;
 color: #fff;
+overflow: auto;
 }
 #bg-image{
 background-image: url('../img/slide/1.jpg');
@@ -721,7 +722,7 @@ display: inline-block !important;
 }
 .onoffswitch-inner {
     display: block; 
-    width: 200%; 
+    width: 220%; 
     margin-left: -100%;
     -moz-transition: margin 0.1s ease-in 0s;
     -webkit-transition: margin 0.1s ease-in 0s;
@@ -748,6 +749,12 @@ display: inline-block !important;
     background-color: #0C9AC1;
     color: #FFFFFF;
     border-radius: 30px 0 0 30px;
+}
+.verificado .onoffswitch-inner:before {
+    content: "Verificado";
+  }
+.verificado .onoffswitch-inner:after {
+    content: "No Verificado";   
 }
 .onoffswitch-inner:after {
     content: "Inactivo";
