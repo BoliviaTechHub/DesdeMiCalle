@@ -22,7 +22,9 @@
     </ol>
     <!-- Wrapper for Slides -->
     <div class="carousel-inner">
-        <div class="fixed-brand"><img class="img-responsive" src="{{asset('images/logoinv.png')}}"/><div class="city">La Paz</div></div>
+        <div class="fixed-brand"><img class="img-responsive" src="{{asset('images/logoinv.png')}}"/><div class="city">La Paz</div>
+            <img class="img-responsive" src="{{asset('images/logo-hivos.png')}}"/>
+        </div>
         <div class="item active">
             <!-- Set the first background image using inline CSS below. -->
             <div class="fill" style="background-image:url('{{asset("images/slide/1.jpg")}}');"></div>
