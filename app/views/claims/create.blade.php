@@ -60,7 +60,8 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <label>Ubica tu reclamo en el mapa</label>
-                        <div id="map" style="width: 600px; height: 400px"></div>
+                        <div id="create-claim-map" style="width: 600px; height: 400px"></div>
+                        {{--<div id="create-claim-map" style="width: 100%; height: 100%;"></div>--}}
                         <input id="latitude" type="hidden" name="latitude" value="0">
                         <input id="longitude" type="hidden" name="longitude" value="0">
                     </div>
