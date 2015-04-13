@@ -22,7 +22,9 @@
     </ol>
     <!-- Wrapper for Slides -->
     <div class="carousel-inner">
-        <div class="fixed-brand"><img class="img-responsive" src="{{asset('images/logoinv.png')}}"/><div class="city">La Paz</div></div>
+        <div class="fixed-brand"><img class="img-responsive" src="{{asset('images/logoinv.png')}}"/><div class="city">La Paz</div>
+            <img class="img-responsive" src="{{asset('images/logo-hivos.png')}}"/>
+        </div>
         <div class="item active">
             <!-- Set the first background image using inline CSS below. -->
             <div class="fill" style="background-image:url('{{asset("images/slide/1.jpg")}}');"></div>
@@ -63,7 +65,8 @@
             <div class="fill" style="background-image:url({{asset('images/slide/2.jpg')}}');"></div>
             <div class="carousel-caption">
                 <div class="col-md-offset-5 col-md-7">
-                    <a class="btn btn-lg btn-clear" href="/publicWorks"><i class="icon-binoculars icon-float"></i> Quiero ver las obras públicas</a>
+                    {{--<a class="btn btn-lg btn-clear" href="/publicWorks"><i class="icon-binoculars icon-float"></i> Quiero ver las obras públicas</a>--}}
+                    <a class="btn btn-lg btn-clear" href="javascript:void(0)"><i class="icon-binoculars icon-float"></i> Proximamente...</a>
                     <h2>Monitorea Obras Publicas</h2>
                     <p>Existe un conjunto de obras públicas que puedes monitorear para mejorar tu ciudad. <br/> No te quedes callado, ¡habla por tu ciudad!</p>
                 </div>
@@ -74,7 +77,8 @@
             <div class="fill" style="background-image:url({{asset('images/slide/3.jpg')}});"></div>
             <div class="carousel-caption">
                 <div class="col-md-offset-5 col-md-7">
-                    <a class="btn btn-lg btn-clear" href="/informationRequests/create"><i class="icon-bubbles icon-float"></i> Quiero pedir información</a>
+                    {{--<a class="btn btn-lg btn-clear" href="/informationRequests/create"><i class="icon-bubbles icon-float"></i> Quiero pedir información</a>--}}
+                    <a class="btn btn-lg btn-clear" href="javascript:void(0)"><i class="icon-bubbles icon-float"></i> Proximamente...</a>
                     <h2>Consulta sobre las Obras Publicas</h2>
                     <p>¿Hay alguna obra que esta siendo monitoreada sobre la que necesitas información? <br/> Realiza tu consulta</p>
                 </div>

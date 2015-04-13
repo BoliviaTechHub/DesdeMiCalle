@@ -64,8 +64,8 @@
             <ul class="nav navbar-nav">
                 <li class="active view-devices"><a href="/"><span class="icon-location icon-medium"></span></a></li>
                 <li><a href="/claims">Ver Reclamos</a></li>
-                <li><a href="/publicWorks">Ver Obras Públicas</a></li>
-                <li><a href="/informationRequests">Pedir Información</a></li>
+                {{--<li><a href="/publicWorks">Ver Obras Públicas</a></li>--}}
+                {{--<li><a href="/informationRequests">Pedir Información</a></li>--}}
                 <li>
                     <form action="" method="get" id="search" class="search-form">
 <!--                        <input type="text" class="" name="k" data-default="100" placeholder="Buscar..."/><span class="icon-search icon-medium"></span>-->
@@ -88,13 +88,13 @@
 </nav>
 <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div class="container-fluid">
-        <span>© 2015 SIM</span>
+        <span>Desarrollado por <br> ACM - SIM 2015</span>
         <div class="navbar-right nav-social">
             <ul class="nav navbar-nav">
-                <li><a href="#"><span class="icon-facebook2 icon-medium"></span></a></li>
-                <li><a href="#"><span class="icon-twitter2 icon-medium"></span></a></li>
-                <li><a href="#"><span class="icon-google-plus2 icon-medium"></span></a></li>
-                <li><a href="https://github.com/BoliviaTechHub/DesdeMiCalle"><span class="icon-github4 icon-medium"></span></a></li>
+                <li><a href="https://www.facebook.com/pages/Desde-Mi-Calle/987236891288482" target="_blank"><span class="icon-facebook2 icon-medium"></span></a></li>
+                <li><a href="https://twitter.com/desdemicalle" target="_blank"><span class="icon-twitter2 icon-medium"></span></a></li>
+                <li><a href="https://plus.google.com/103308417766830369471" target="_blank"><span class="icon-google-plus2 icon-medium"></span></a></li>
+                <li><a href="https://github.com/BoliviaTechHub/DesdeMiCalle" target="_blank"><span class="icon-github4 icon-medium"></span></a></li>
             </ul>
         </div>
     </div><!--/.container-->

@@ -34,7 +34,7 @@
                         <div class="col-md-10">
                             <h3><a class="claim-title" data-id="{{$claim->id}}" href="/claims/{{$claim->id}}">{{$claim->title}}</a> <small>{{$claim->user_name}}</small></h3>
                             <div><span class="badge success">Verificado</span><span> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</span></div>
-                            <p>{{$claim->description}}</p>
+                            {{--<p>{{$claim->description}}</p>--}}
                         </div>
                     </div>
                 @endforeach
