@@ -83,78 +83,64 @@
                 </div>
             </div><!--/.container-->
     </nav>
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"><i class="icon-bullhorn"></i></li>
-            <li data-target="#myCarousel" data-slide-to="1"><i class="icon-binoculars"></i></li>
-            <li data-target="#myCarousel" data-slide-to="2"><i class="icon-bubbles"></i></li>
-        </ol>
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="fixed-brand"><img class="img-responsive" src="assets/img/logoinv.png"/><div class="city">La Paz</div>
-            <img class="img-responsive" src="assets/img/logo-hivos.png"/></div>
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('assets/img/slide/1.jpg');"></div>
-                <div class="carousel-caption">
-                    <div class="col-md-5"><div class="view-mobile"><img class="img-responsive" src="assets/img/logoinv.png"/><div class="city">La Paz</div></div></div>
-                    <div class="col-md-7">
-                        <a class="btn btn-lg btn-clear" href="crea-reclamo.html"><i class="icon-bullhorn icon-float"></i> Quiero publicar un reclamo</a>
-                        <h2>¿Como funciona?</h2>
-                        <p>Somos la plataforma que te permite realizar reclamos en linea sobre asuntos urbanos.</p>
-                        <div class="row">
-                          <div class="col-md-4">
-                            <div class="icon-circle">
-                              <span>1</span>
-                              <i class="icon-bubble icon-big icon-vertical"></i>
-                            </div>
-                            <p>Descríbenos tu reclamo</p>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="icon-circle">
-                              <span>2</span>
-                              <i class="icon-location icon-big icon-vertical"></i>
-                            </div>
-                            <p>Localizalo en el mapa</p>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="icon-circle">
-                              <span>3</span>
-                              <i class="icon-binoculars icon-big icon-vertical"></i>
-                            </div>
-                            <p>Monitorea el avance</p>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('assets/img/slide/2.jpg');"></div>
-                <div class="carousel-caption">
-                    <div class="col-md-offset-5 col-md-7">    
-                        <a class="btn btn-lg btn-clear"><i class="icon-binoculars icon-float"></i> Quiero ver las obras públicas</a>
-                        <h2>Monitorea Obras Publicas</h2>
-                        <p>Existe un conjunto de obras públicas que puedes monitorear para mejorar tu ciudad. <br/> No te quedes callado, ¡habla por tu ciudad!</p>
-                    </div>    
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('assets/img/slide/3.jpg');"></div>
-                <div class="carousel-caption">
-                    <div class="col-md-offset-5 col-md-7">
-                        <a class="btn btn-lg btn-clear"><i class="icon-bubbles icon-float"></i> Quiero pedir información</a>                        
-                        <h2>Consulta sobre las Obras Publicas</h2>
-                        <p>¿Hay alguna obra que esta siendo monitoreada sobre la que necesitas información? <br/> Realiza tu consulta</p>                        
-                    </div>
-                </div>
-            </div>
+
+
+    <div id="main-content">
+      <div class="container">
+
+   
+        <div class="form-group titulo">
+          <h3>Administración de reclamos</h3>
+        </div>  
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Nombre del reclamo</th>
+                    <th>Fecha de creacion</th>
+                    <th>Fecho de modificacion</th>
+                    <th>Usuario</th>
+                    <th>Verificado/No verificado</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                </thead>
+    
+                <tbody>
+                <tr>
+                    <td>Reclamo 1</td>
+                    <td>0001-11-30 00:00:00</td>
+                    <td>0001-11-30 00:00:00</td>
+                    <td><a href="http://desdemicalle.org:1337/users/show/admin">usuario 1</a></td>
+                    <td>Verificado</td>
+                    <td><a class="btn btn-xs btn-default" href="/users/edit/admin"><i class="icon-pencil"></i></a></td>
+                    <td><a class="btn btn-xs btn-primary delete-user" href="javascript:void(0)" data-id="22" data-username="admin"><i class="icon-cross"></i></a></td>
+                </tr>
+                    <tr>
+                    <td>Reclamo 1</td>
+                    <td>0001-11-30 00:00:00</td>
+                    <td>0001-11-30 00:00:00</td>
+                    <td><a href="http://desdemicalle.org:1337/users/show/admin">usuario 1</a></td>
+                    <td>Verificado</td>
+                    <td><a class="btn btn-xs btn-default" href="/users/edit/admin"><i class="icon-pencil"></i></a></td>
+                    <td><a class="btn btn-xs btn-primary delete-user" href="javascript:void(0)" data-id="22" data-username="admin"><i class="icon-cross"></i></a></td>
+                </tr>
+                                <tr>
+                    <td>Reclamo 1</td>
+                    <td>0001-11-30 00:00:00</td>
+                    <td>0001-11-30 00:00:00</td>
+                    <td><a href="http://desdemicalle.org:1337/users/show/admin">usuario 1</a></td>
+                    <td>Verificado</td>
+                    <td><a class="btn btn-xs btn-default" href="/users/edit/admin"><i class="icon-pencil"></i></a></td>
+                    <td><a class="btn btn-xs btn-primary delete-user" href="javascript:void(0)" data-id="22" data-username="admin"><i class="icon-cross"></i></a></td>
+                </tr>        
+                </tbody>
+            </table>
         </div>
-    </div>
 
+      </div>
 
+    </div>    
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -168,9 +154,6 @@
     <script>
     $(document).ready(function() {
         appMaster.preLoader();
-    });
-    $('.carousel').carousel({
-        interval: 10000 //changes the speed
     });
     </script>
 
