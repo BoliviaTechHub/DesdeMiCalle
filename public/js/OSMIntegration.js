@@ -6,7 +6,20 @@
 (function ($) {
     "use strict";
     $(document).ready(function () {
-        var marker, map, claimIndexMap;
+        var marker, map, claimIndexMap,
+            lapaz = new L.LatLng(-16.51361, -68.12447),
+            actualLatitude = -16.51361,
+            actualLongitude = -68.12447;
+
+        // Get the actual latitude and longitude of the user.
+        if (navigator.geolocation) {
+            var geo = navigator.geolocation.watchPosition(showPosition);
+        }
+
+        function showPosition(position) {
+            actualLatitude = position.coords.latitude;
+            actualLongitude = position.coords.longitude;
+        }
 
         // Function for the Creates Claim Map section.
         // This ensures the functionality of the mobile pin.
@@ -47,7 +60,6 @@
         // Init.
         function init() {
             // La Paz City latitude and longitude.
-            var lapaz = new L.LatLng(-16.51361, -68.12447); // geographical point (longitude and latitude)
 
             // Creates Claim Map.
             if ($('#create-claim-map').length) {
@@ -60,14 +72,14 @@
 
                 map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text. Attribution overload
 
-                map.setView(lapaz, 17);
+                map.setView([actualLatitude, actualLongitude], 16);
                 map.on('click', onMapClick);
             }
 
 
             // Creates the Claims Index Map.
             if ($('#claims-index-map').length) {
-                claimIndexMap = L.map('claims-index-map').setView(lapaz, 17);
+                claimIndexMap = L.map('claims-index-map').setView(lapaz, 14);
 
                 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
