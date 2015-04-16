@@ -1,4 +1,4 @@
-## Laravel PHP Framework
+## Desde Mi Calle
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
@@ -22,4 +22,4 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 
 ### License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+El proyecto Desde Mi Calle tiene una licencia de Software Libre, la cual es: [MIT license](http://opensource.org/licenses/MIT)
