@@ -216,7 +216,8 @@ class UsersController extends Controller
      * @return mixed
      */
     public function edit($username) {
-        return View::make('users.edit', ['user' => User::whereUsername($username)->first()]);
+        return 'You\'re here, we\'re not..';
+//        return View::make('users.edit', ['user' => User::whereUsername($username)->first()]);
     }
 
     /**
