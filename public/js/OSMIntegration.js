@@ -91,8 +91,21 @@
                     someMarker.bindPopup('<a href="' + $(this).data('url') + '"><b>' + $(this).data('title') + '</b></a>');
                 });
             }
-        }
 
+            if ($('#show-claim-map').length) {
+                var $claimTitle = $('#claim-title');
+                claimIndexMap = L.map('show-claim-map').setView([$claimTitle.data('latitude'), $claimTitle.data('longitude')], 17);
+
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+                    maxZoom: 18
+                }).addTo(claimIndexMap);
+
+                var someMarker = L.marker([$claimTitle.data('latitude'), $claimTitle.data('longitude')]).addTo(claimIndexMap);
+                someMarker.bindPopup('<a href="' + $claimTitle.data('url') + '"><b>' + $claimTitle.data('title') + '</b></a>');
+            }
+
+        }
         // Call to the init function
         init();
     });
