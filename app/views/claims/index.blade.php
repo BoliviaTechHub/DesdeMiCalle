@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-10">
                             <h3><a class="claim-title" data-id="{{$claim->id}}" href="/claims/{{$claim->id}}" data-latitude="{{$claim->latitude}}" data-longitude="{{$claim->longitude}}" data-title="{{$claim->title}}" data-url="/claims/{{$claim->id}}" data-class="{{$claim->parentCategory->class}}">{{$claim->title}}</a> <small>{{$claim->user_name}}</small></h3>
-                            <div><span class="badge success">Verificado</span><span> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</span></div>
+                            <div><span class="badge">No verificado</span><span> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</span></div>
                             {{--<p>{{$claim->description}}</p>--}}
                         </div>
                     </div>
