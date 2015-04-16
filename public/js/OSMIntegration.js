@@ -7,7 +7,7 @@
     "use strict";
     $(document).ready(function () {
         var marker, map, claimIndexMap,
-            lapaz = new L.LatLng(-16.51361, -68.12447),
+            lapaz = new L.LatLng(-16.51361, -68.12447), // La Paz City latitude and longitude.
             actualLatitude = -16.51361,
             actualLongitude = -68.12447;
 
@@ -59,7 +59,29 @@
 
         // Init.
         function init() {
-            // La Paz City latitude and longitude.
+
+            var LeafIcon = L.Icon.extend({
+                options: {
+                    shadowUrl: 'leaflet/images/marker-shadow.png'
+                }
+            });
+
+            var basuraMarker = new LeafIcon({iconUrl: 'leaflet/images/basura-marker.png'}),
+                aguaMarker = new LeafIcon({iconUrl: 'leaflet/images/agua-marker.png'}),
+                calleMarker = new LeafIcon({iconUrl: 'leaflet/images/calle-marker.png'}),
+                luzMarker = new LeafIcon({iconUrl: 'leaflet/images/luz-marker.png'}),
+                saludMarker = new LeafIcon({iconUrl: 'leaflet/images/salud-marker.png'}),
+                obraMarker = new LeafIcon({iconUrl: 'leaflet/images/obra-marker.png'}),
+                pluvialMarker = new LeafIcon({iconUrl: 'leaflet/images/pluvial-marker.png'}),
+                markers = new Array();
+
+            markers['basura'] = basuraMarker;
+            markers['agua'] = aguaMarker;
+            markers['calle'] = calleMarker;
+            markers['luz'] = luzMarker;
+            markers['salud'] = saludMarker;
+            markers['obra'] = obraMarker;
+            markers['pluvial'] = pluvialMarker;
 
             // Creates Claim Map.
             if ($('#create-claim-map').length) {
@@ -87,7 +109,7 @@
                 }).addTo(claimIndexMap);
 
                 $('.claim-title').each(function () {
-                    var someMarker = L.marker([$(this).data('latitude'), $(this).data('longitude')]).addTo(claimIndexMap);
+                    var someMarker = L.marker([$(this).data('latitude'), $(this).data('longitude')], {icon: markers[$(this).data('class')]}).addTo(claimIndexMap);
                     someMarker.bindPopup('<a href="' + $(this).data('url') + '"><b>' + $(this).data('title') + '</b></a>');
                 });
             }

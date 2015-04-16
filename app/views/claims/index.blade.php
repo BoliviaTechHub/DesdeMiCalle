@@ -32,7 +32,7 @@
                             <a class="link-map" href="javascript:void(0)"><div class="img-reclamo {{$claim->parentCategory->class}}"></div></a>
                         </div>
                         <div class="col-md-10">
-                            <h3><a class="claim-title" data-id="{{$claim->id}}" href="/claims/{{$claim->id}}" data-latitude="{{$claim->latitude}}" data-longitude="{{$claim->longitude}}" data-title="{{$claim->title}}" data-url="/claims/{{$claim->id}}">{{$claim->title}}</a> <small>{{$claim->user_name}}</small></h3>
+                            <h3><a class="claim-title" data-id="{{$claim->id}}" href="/claims/{{$claim->id}}" data-latitude="{{$claim->latitude}}" data-longitude="{{$claim->longitude}}" data-title="{{$claim->title}}" data-url="/claims/{{$claim->id}}" data-class="{{$claim->parentCategory->class}}">{{$claim->title}}</a> <small>{{$claim->user_name}}</small></h3>
                             <div><span class="badge success">Verificado</span><span> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</span></div>
                             {{--<p>{{$claim->description}}</p>--}}
                         </div>
