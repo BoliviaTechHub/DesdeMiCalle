@@ -64,6 +64,7 @@
             <ul class="nav navbar-nav">
                 <li class="active view-devices"><a href="/"><span class="icon-location icon-medium"></span></a></li>
                 <li><a href="/claims">Ver Reclamos</a></li>
+                <li><a href="/about_us">Acerca de nosotros</a></li>
                 {{--<li><a href="/publicWorks">Ver Obras Públicas</a></li>--}}
                 {{--<li><a href="/informationRequests">Pedir Información</a></li>--}}
                 <li>
