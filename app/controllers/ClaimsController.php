@@ -72,18 +72,21 @@ class ClaimsController extends \BaseController {
 
         $claim->save();
 
-        // The name of the file is created in this way to avoid repetitions.
-        // user_id + claim_id + timestamp
-        $file_name = Auth::id() . $claim->id . time() . '.' . Input::file('image')->getClientOriginalExtension();
+        // Put an image in the Claim if it exists.
+        if(Input::file('image')) {
+            // The name of the file is created in this way to avoid repetitions.
+            // user_id + claim_id + timestamp
+            $file_name = Auth::id() . $claim->id . time() . '.' . Input::file('image')->getClientOriginalExtension();
 
-        // The place where the image will be saved and their public url.
-        $claimsImagesPublicUrl = 'images/uploaded/claims/';
-        $claimsImagesFolder = public_path() . '/' . $claimsImagesPublicUrl;
+            // The place where the image will be saved and their public url.
+            $claimsImagesPublicUrl = 'images/uploaded/claims/';
+            $claimsImagesFolder = public_path() . '/' . $claimsImagesPublicUrl;
 
-        // Saving the image and updating the Claim object.
-        Input::file('image')->move($claimsImagesFolder, $file_name);
-        $claim->image_url = $claimsImagesPublicUrl . $file_name;
-        $claim->save();
+            // Saving the image and updating the Claim object.
+            Input::file('image')->move($claimsImagesFolder, $file_name);
+            $claim->image_url = $claimsImagesPublicUrl . $file_name;
+            $claim->save();
+        }
 
         return $this->index();
     }

@@ -2,129 +2,27 @@
  * Created by jhtan on 3/9/15.
  */
 
+// Fuck you OL
 (function ($) {
     "use strict";
     $(document).ready(function () {
-//        var map = new ol.Map("map");
-//        map.addLayer(new ol.Layer.OSM());
-//        map.addLayer(new ol.source.OSM());
-//        map.zoomToMaxExtent();
+        var marker, map, claimIndexMap,
+            lapaz = new L.LatLng(-16.51361, -68.12447), // La Paz City latitude and longitude.
+            actualLatitude = -16.51361,
+            actualLongitude = -68.12447;
 
-
-
-        //var exampleNS = {};
-        //
-        //exampleNS.getRendererFromQueryString = function() {
-        //    var obj = {}, queryString = location.search.slice(1),
-        //        re = /([^&=]+)=([^&]*)/g, m;
-        //
-        //    while (m = re.exec(queryString)) {
-        //        obj[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-        //    }
-        //    if ('renderers' in obj) {
-        //        return obj['renderers'].split(',');
-        //    } else if ('renderer' in obj) {
-        //        return [obj['renderer']];
-        //    } else {
-        //        return undefined;
-        //    }
-        //};
-        //
-        //var map = new ol.Map({
-        //    layers: [
-        //        new ol.layer.Tile({
-        //            source: new ol.source.OSM()
-        //        })
-        //    ],
-        //    controls: ol.control.defaults({
-        //        attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
-        //            collapsible: false
-        //        })
-        //    }),
-        //    renderer: exampleNS.getRendererFromQueryString(),
-        //    target: 'map',
-        //    view: new ol.View({
-        //        center: [0, 0],
-        //        zoom: 2
-        //    })
-        //});
-
-
-
-        //var map = new ol.Map("map");
-        //map.addLayer(new ol.Layer.OSM());
-        //
-        //var lonLat = new ol.LonLat( -0.1279688 ,51.5077286 )
-        //      .transform(
-        //        new ol.Projection("EPSG:4326"), // transform from WGS 1984
-        //        map.getProjectionObject() // to Spherical Mercator Projection
-        //      );
-        //
-        //var zoom=16;
-        //
-        //var markers = new ol.Layer.Markers( "Markers" );
-        //map.addLayer(markers);
-        //
-        //markers.addMarker(new ol.Marker(lonLat));
-        //
-        //map.setCenter (lonLat, zoom);
-
-        ////////////////////////////////////////////////////////////////////////////
-        //var map = new OpenLayers.Map('map');
-        //map.addLayer(new OpenLayers.Layer.OSM());
-        //
-        //var lonLat = new OpenLayers.LonLat(-68.12447, -16.51361)
-        //    .transform(
-        //    new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
-        //    map.getProjectionObject() // to Spherical Mercator Projection
-        //);
-        //
-        //var zoom = 16;
-        //
-        //var markers = new OpenLayers.Layer.Markers( "Markers" );
-        //map.addLayer(markers);
-        //
-        //markers.addMarker(new OpenLayers.Marker(lonLat));
-        //
-        //map.setCenter(lonLat, zoom);
-        //
-        //map.events.register("click", map, function (e) {
-        //    var lonlat = map.getLonLatFromPixel(e.xy);
-        //    console.log("You clicked near " + lonlat.lat + " N, " + +lonlat.lon + " E");
-        //});
-        ////////////////////////////////////////////////////////////////////////////
-
-        //var wms = new OpenLayers.Layer.WMS(
-        //    "OpenLayers WMS",
-        //    "http://vmap0.tiles.osgeo.org/wms/vmap0",
-        //    {'layers': 'basic'}
-        //);
-        //map.addLayer(wms);
-        //map.zoomToMaxExtent();
-
-        // Fuck you OL
-        var marker;
-        var map;
-        init();
-
-        function init() {
-            map = L.map('map');
-
-            //add a tile layer to add to our map, in this case it's the 'standard' OpenStreetMap.org tile server
-            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-                maxZoom: 18
-            }).addTo(map);
-
-            map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text. Attribution overload
-
-
-            var lapaz = new L.LatLng(-16.51361, -68.12447); // geographical point (longitude and latitude)
-            map.setView(lapaz, 17);
-            map.on('click', onMapClick);
+        // Get the actual latitude and longitude of the user.
+        if (navigator.geolocation) {
+            var geo = navigator.geolocation.watchPosition(showPosition);
         }
 
+        function showPosition(position) {
+            actualLatitude = position.coords.latitude;
+            actualLongitude = position.coords.longitude;
+        }
 
+        // Function for the Creates Claim Map section.
+        // This ensures the functionality of the mobile pin.
         function onMapClick(e) {
             if (marker) {
                 map.removeLayer(marker);
@@ -143,7 +41,7 @@
             marker =  new L.marker( e.latlng ,  { id : "id" , icon : redIcon , draggable : 'true' });
             marker.on('dragend',  function( event ){
                 var marker =  event.target ;
-                            var position = marker.getLatLng();
+                var position = marker.getLatLng();
                 //console.log(position.lat);
                 $('#latitude').val(position.lat);
                 $('#longitude').val(position.lng);
@@ -159,5 +57,78 @@
             //console.log(e.latlng.lat+"  /  "+e.latlng.lng);
         }
 
+        // Init.
+        function init() {
+
+            var LeafIcon = L.Icon.extend({
+                options: {
+                    shadowUrl: 'leaflet/images/marker-shadow.png'
+                }
+            });
+
+            var basuraMarker = new LeafIcon({iconUrl: 'leaflet/images/basura-marker.png'}),
+                aguaMarker = new LeafIcon({iconUrl: 'leaflet/images/agua-marker.png'}),
+                calleMarker = new LeafIcon({iconUrl: 'leaflet/images/calle-marker.png'}),
+                luzMarker = new LeafIcon({iconUrl: 'leaflet/images/luz-marker.png'}),
+                saludMarker = new LeafIcon({iconUrl: 'leaflet/images/salud-marker.png'}),
+                obraMarker = new LeafIcon({iconUrl: 'leaflet/images/obra-marker.png'}),
+                pluvialMarker = new LeafIcon({iconUrl: 'leaflet/images/pluvial-marker.png'}),
+                markers = new Array();
+
+            markers['basura'] = basuraMarker;
+            markers['agua'] = aguaMarker;
+            markers['calle'] = calleMarker;
+            markers['luz'] = luzMarker;
+            markers['salud'] = saludMarker;
+            markers['obra'] = obraMarker;
+            markers['pluvial'] = pluvialMarker;
+
+            // Creates Claim Map.
+            if ($('#create-claim-map').length) {
+                map = L.map('create-claim-map');
+
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+                    maxZoom: 18
+                }).addTo(map);
+
+                map.attributionControl.setPrefix(''); // Don't show the 'Powered by Leaflet' text. Attribution overload
+
+                map.setView([actualLatitude, actualLongitude], 16);
+                map.on('click', onMapClick);
+            }
+
+
+            // Creates the Claims Index Map.
+            if ($('#claims-index-map').length) {
+                claimIndexMap = L.map('claims-index-map').setView(lapaz, 14);
+
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+                    maxZoom: 18
+                }).addTo(claimIndexMap);
+
+                $('.claim-title').each(function () {
+                    var someMarker = L.marker([$(this).data('latitude'), $(this).data('longitude')], {icon: markers[$(this).data('class')]}).addTo(claimIndexMap);
+                    someMarker.bindPopup('<a href="' + $(this).data('url') + '"><b>' + $(this).data('title') + '</b></a>');
+                });
+            }
+
+            if ($('#show-claim-map').length) {
+                var $claimTitle = $('#claim-title');
+                claimIndexMap = L.map('show-claim-map').setView([$claimTitle.data('latitude'), $claimTitle.data('longitude')], 17);
+
+                L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+                    maxZoom: 18
+                }).addTo(claimIndexMap);
+
+                var someMarker = L.marker([$claimTitle.data('latitude'), $claimTitle.data('longitude')]).addTo(claimIndexMap);
+                someMarker.bindPopup('<a href="' + $claimTitle.data('url') + '"><b>' + $claimTitle.data('title') + '</b></a>');
+            }
+
+        }
+        // Call to the init function
+        init();
     });
 })(jQuery);
