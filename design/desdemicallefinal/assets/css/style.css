@@ -1,15 +1,4 @@
-/*
- * Author: Carlos Alvarez
- * URL: http://alvarez.is
- *
- * Theme Name: Basic
- * URL: http://blacktie.co
- * Version: 1.0
- */
 
-/*	################################################################
-	1. GENERAL STRUCTURES
-################################################################# */
 
 /* Import fonts */
 
@@ -184,7 +173,7 @@ font-size: 14px;
 
 input {
 font-size: 14px;
-min-height: 40px;
+min-height: 20px;
 border-radius: 2px;
 line-height: 20px;
 padding: 10px;
@@ -675,7 +664,7 @@ background-color: transparent;
 cursor: pointer;
 border: 1px solid #fff;
 }
-/*nuevo*/
+
 .todos{font-family: 'Glyphicons Halflings' !important;}
 .active .todos{background-color: #fff; color:#000;}
 .active .todos:before{color:#000;}
@@ -715,7 +704,19 @@ border: 1px solid #fff;
 .dinero:after{content: "\e93b";}
 .reclamo .comida, .active .comida{background-color: #C6491A;}
 .comida:after{content: "\e9a3";}
-/*nuevo*/
+
+.btn-group .btn-link .img-reclamo{
+    margin: 15px;
+}
+.btn-group .btn-link.active, .btn-group .btn-link:focus{
+  border: 1px solid #fff;
+}
+.btn-group .btn-link:hover, .btn-group  .btn-link:focus {
+  text-decoration: none;
+}
+.img-reclamo{
+  font-weight: normal;
+}
 
 
 .success{
@@ -884,6 +885,29 @@ font-style: italic;
 .img-center{
   margin: auto;
 }
+h4.problema{
+  color: #fff;
+  font-style: italic;
+}
+.form-control{
+  height: 30px;
+  padding: 2px 12px;
+}
+.input-group-addon {
+  padding: 3px 12px;
+}
+input[type="radio"], input[type="checkbox"] {
+  margin: 0 0;
+}
+.checkbox-inline {
+height: 30px;
+}
+.text-danger {
+  color: #E04E4B;
+}
+.text-success {
+  color: #6EF470;
+}
 @media (min-width: 992px) and (max-width: 1199px) {
   .carousel-caption {
     right: 10%;
@@ -973,10 +997,15 @@ font-style: italic;
 	padding: 10px;	
 	}
 	.navbar-fixed-bottom .container-fluid>span {
-	line-height: 50px;
-	display: block;
-	float: left;
+    line-height: 15px;
+    display: block;
+    float: left;
+    padding-top: 5px;
+    word-wrap: normal;
 	}
+  .navbar-fixed-bottom .container-fluid>span br{
+      display: inline-block;
+  }
 	.navbar-fixed-top {
 	top: 0px;
 	padding: 0;
@@ -1026,20 +1055,11 @@ font-style: italic;
 	overflow-y: auto;
 	height: 70%;
 	}
-}
-
-
-/*NUEVO*/
-
-.btn-group .btn-link .img-reclamo{
-    margin: 15px;
-}
-.btn-group .btn-link.active, .btn-group .btn-link:focus{
-  border: 1px solid #fff;
-}
-.btn-group .btn-link:hover, .btn-group  .btn-link:focus {
-  text-decoration: none;
-}
-.img-reclamo{
-  font-weight: normal;
+  h3 .btn.pull-right{
+    float: none !important;
+    width: 100%;
+  }
+  .section-filter label {
+    display: block;
+  }
 }
