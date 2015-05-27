@@ -23,8 +23,8 @@
                 <div class="form-group">
                     <hr/>
                     {{--<div class="alert alert-danger" role="alert"><span class="icon-cancel-circle"></span> E-mail o password incorrecto</div>--}}
-                    <label for="email">E-mail o Nombre de Usuario</label>
-                    <input class="form-control" tabindex="1" placeholder="E-mail o Nombre de Usuario" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
+                    <label for="email">Correo Electrónico o Nombre de Usuario</label>
+                    <input class="form-control" tabindex="1" placeholder="Correo Electrónico o Nombre de Usuario" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
                 </div>
                 <div class="form-group">
                     <label for="password">
