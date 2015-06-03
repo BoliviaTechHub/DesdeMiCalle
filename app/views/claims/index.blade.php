@@ -11,21 +11,21 @@
                 <p>Aquí se listan todos los reclamos registrados. <br/>También puedes:</p>
                 <a class="btn btn-lg btn-clear" href="claims/create"><i class="icon-bullhorn icon-float"></i> Publicar un reclamo</a>
             </div>
-            {{--<div class="section-filter">--}}
-                {{--<p>Puedes filtrar los reclamos por: </p>--}}
-                {{--<a href="javascript:void(0)"><div class="img-reclamo todos glyphicon glyphicon-list-alt"></div></a>--}}
-                {{--<a href="javascript:void(0)" class="active"><div class="img-reclamo basura"></div></a>--}}
-                {{--<a href="javascript:void(0)"><div class="img-reclamo agua"></div></a>--}}
-                {{--<a href="javascript:void(0)"><div class="img-reclamo calle"></div></a>--}}
-                {{--<a href="javascript:void(0)"><div class="img-reclamo luz"></div></a>--}}
-                {{--<a href="javascript:void(0)"><div class="img-reclamo salud"></div></a>--}}
-                {{--<a href="javascript:void(0)" class="active"><div class="img-reclamo obra"></div></a>--}}
-                {{--<a href="javascript:void(0)"><div class="img-reclamo pluvial"></div></a>--}}
-                {{--<form action="" method="get" id="search" class="search-form">--}}
-{{--<!--                    <input type="text" class="" name="k" data-default="100" placeholder="Busca un reclamo..."/><span class="icon-search icon-medium"></span>-->--}}
-                {{--</form>--}}
-            {{--</div>--}}
-            @if ($claims->count())
+            <div class="section-filter">
+                <p>Puedes filtrar los reclamos por: </p>
+                <a href="?type=all" @if ($claimType == 'all') class="active" @endif ><div class="img-reclamo todos glyphicon glyphicon-list-alt"></div></a>
+                <a href="?type=basura" @if ($claimType == 'basura') class="active" @endif ><div class="img-reclamo basura"></div></a>
+                <a href="?type=agua" @if ($claimType == 'agua') class="active" @endif ><div class="img-reclamo agua"></div></a>
+                <a href="?type=calle" @if ($claimType == 'calle') class="active" @endif ><div class="img-reclamo calle"></div></a>
+                <a href="?type=luz" @if ($claimType == 'luz') class="active" @endif ><div class="img-reclamo luz"></div></a>
+                <a href="?type=salud" @if ($claimType == 'salud') class="active" @endif ><div class="img-reclamo salud"></div></a>
+                <a href="?type=obra" @if ($claimType == 'obra') class="active" @endif ><div class="img-reclamo obra"></div></a>
+                <a href="?type=pluvial" @if ($claimType == 'pluvial') class="active" @endif ><div class="img-reclamo pluvial"></div></a>
+                <form action="" method="get" id="search" class="search-form">
+<!--                    <input type="text" class="" name="k" data-default="100" placeholder="Busca un reclamo..."/><span class="icon-search icon-medium"></span>-->
+                </form>
+            </div>
+            @if (sizeof($claims))
                 @foreach ($claims as $claim)
                     <div class="row reclamo">
                         <div class="col-md-2 text-right">

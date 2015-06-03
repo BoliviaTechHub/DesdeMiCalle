@@ -19,19 +19,27 @@ class ClaimsController extends \BaseController {
      * @return Response
      */
     public function index()	{
-        $claims = $this->claim->all()->reverse();
+        isset($_GET['type']) ? $claimType = $_GET['type'] : $claimType = 'all';
+        $claims = Claim::all()->reverse();
 
+        // TODO: Maybe there is a best way to do this.. :S
+        // http://laravel.com/docs/4.2/eloquent#eager-loading
+        $claimsResult = array();
         foreach ($claims as $claim) {
             $user = User::find($claim->userId);
             $claim->user_name = $user->name . ' ' . $user->lastName;
-
             $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
+            if($claimType == 'all' || $claimType == $claim->parentCategory->class) {
+                $claimsResult[] = $claim;
+            }
         }
 
+        $claims = $claimsResult;
         return View::make('claims.index', [
             'claims' => $claims,
             'categories' => ClaimWorkCategory::all(),
-            'neighborhoods' => Neighborhood::all()
+            'neighborhoods' => Neighborhood::all(),
+            'claimType' => $claimType
         ]);
     }
 
