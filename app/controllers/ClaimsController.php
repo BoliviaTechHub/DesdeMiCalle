@@ -106,6 +106,7 @@ class ClaimsController extends \BaseController {
      */
     public function show($id) {
         $claim = Claim::find($id);
+        $claim->childCategory = ClaimWorkCategory::find($claim->claimWorkCategoryId);
         $user = User::find($claim->userId);
         return View::make('claims.show', [
             'claim' => $claim,

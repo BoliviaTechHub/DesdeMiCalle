@@ -852,6 +852,11 @@ font-style: italic;
     margin: auto;
 }
 
+h4.problema{
+    color: #fff;
+    font-style: italic;
+}
+
 .reclamo .img-responsive {
   width: 95%;
   margin: auto;

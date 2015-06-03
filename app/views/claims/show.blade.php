@@ -20,6 +20,7 @@
                     <a class="link-map" href="javascript:void(0)"><div class="img-reclamo basura"></div></a>
                 </div>
                 <div class="col-md-10">
+                    <h4 class="problema">{{$claim->childCategory->name}}</h4>
                     <h3><a id="claim-title" href="javascript:void(0)" data-title="{{$claim->title}}" data-url="/claims/{{$claim->id}}" data-latitude="{{$claim->latitude}}" data-longitude="{{$claim->longitude}}">{{$claim->title}}</a> <small>{{$user_name}}</small></h3>
                     <div><span class="badge success">Verificado</span><span> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</span></div>
                     <p>{{$claim->description}}</p>
