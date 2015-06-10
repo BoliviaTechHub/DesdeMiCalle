@@ -122,7 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
     'Zizaco\Confide\ServiceProvider',
-    'Artdarek\OAuth\OAuthServiceProvider'
+    'Artdarek\OAuth\OAuthServiceProvider',
+        'Ignited\Pdf\PdfServiceProvider',
 	),
 
 	/*
@@ -191,6 +192,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
     'Confide'           => 'Zizaco\Confide\Facade',
     'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
+        'PDF'             => 'Ignited\Pdf\Facades\Pdf'
 	),
 
 );

@@ -10,6 +10,7 @@
                 <h3>RECLAMOS REALIZADOS</h3>
                 <p>Aquí se listan todos los reclamos registrados. <br/>También puedes:</p>
                 <a class="btn btn-lg btn-clear" href="claims/create"><i class="icon-bullhorn icon-float"></i> Publicar un reclamo</a>
+                <a class="btn btn-lg btn-clear btn-success" href="claims/export"><i class="icon-download2 icon-float"></i> Exportar Reclamos</a>
             </div>
             <div class="section-filter">
                 <p>Puedes filtrar los reclamos por: </p>

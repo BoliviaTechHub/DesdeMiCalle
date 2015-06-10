@@ -15,4 +15,11 @@ class Claim extends Eloquent {
 
   protected $table = 'claim';
 
+    public function ClaimWorkCategory() {
+        return $this->belongsTo('ClaimWorkCategory', 'claimWorkCategoryId');
+    }
+
+    public function User() {
+        return $this->belongsTo('User', 'userId');
+    }
 } 

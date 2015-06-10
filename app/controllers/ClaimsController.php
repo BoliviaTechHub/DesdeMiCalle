@@ -58,6 +58,216 @@ class ClaimsController extends \BaseController {
     }
 
     /**
+     * Show the form for export the claims in a pdf file.
+     *
+     * @return mixed
+     */
+    public function export()
+    {
+        // TODO Add here the option to show all the claims if the user is admin.
+        $claims = Claim::with('ClaimWorkCategory')->where('userId', Auth::id())->get();
+
+        // TODO This var sucks!
+        $idsString = "";
+
+        // TODO Research a best approach for get the parent category.
+        foreach($claims as $claim) {
+            $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
+            $idsString .= $claim->id . ',';
+        }
+
+        if (Auth::check()) {
+            return View::make('claims.export', [
+                'claims' => $claims,
+                'idsString' => $idsString
+            ]);
+        } else {
+            return Redirect::to('login');
+        }
+    }
+
+    public function get_report()
+    {
+        $ids = $_GET['q'];
+        $claimsIds = explode(',', $ids);
+        $user = User::find(Auth::id());
+
+        $claims = '';
+        foreach($claimsIds as $claimId) {
+            if(strlen($claimId)) {
+                $claim = Claim::find($claimId);
+
+                // TODO Research a best approach for get the parent category.
+                $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
+
+                $claims .= '
+            <tr>
+				<td align="center">' . $claim->parentCategory->name . '<span class="icon icon-bin"></span></td>
+                <td align="center">' . $claim->claimWorkCategory->name . '</td>
+                <td align="center">' . $claim->title . '</td>
+                <td align="center">' . date("F/j/Y G:i", strtotime($claim->created_at)) . '</td>
+                <td align="center">' . $claim->User->username . '</td>
+                <td align = "center" ><div class="text-success" > ';
+
+                if($claim->isChecked) {
+                    $claims .= 'Verificado';
+                } else {
+                    $claims .= 'No Verificado';
+                }
+
+
+                $claims .= '</div ></td ></tr>';
+            }
+        }
+
+        $pdf = PDF::make();
+        $pdf->addPage('<!DOCTYPE html>
+<html>
+	<head>
+		<link href="assets/css/icons.css" rel="stylesheet">
+		<style type="text/css">
+		body, table, td{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #727272;
+	font-size:9px;
+}
+td{
+	padding:2px;
+}
+div.pageOutput
+{
+    page-break-after: always;
+}
+.FormGrid td{
+	border-bottom: 1px solid #BCBCBC;
+}
+.FormGridBox td{
+	border: 1px solid #BCBCBC;
+}
+.FormGrid .FormSubTitle {
+	background-color: #EFEFEF;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	color:#000000;
+	text-transform: uppercase;
+	padding: 2px 0px;
+}
+.FormPageTitle{
+	padding: 8px 0px;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: Century Gothic,sans-serif;
+}	
+.FormSubTitle {
+	background-color: #CECECE;
+	/*border-right: 1px solid #A5A5A5;*/
+	color:#000000;
+	text-transform: uppercase;
+	padding: 2px 4px;
+}
+.FormTitle{
+	font-family: Century Gothic,sans-serif;
+	font-weight: bold;
+	border-bottom: 3px solid #cccccc;
+	border-left: 0px solid #cccccc;
+	color: #ffffff;
+	background-color: #727272;
+	padding: 15px 0px;
+	text-align: center;
+	font-size:20px;	
+}
+.FormLabel{
+	color: #000000;
+	font-size:9px;
+	padding-top: 10px;	
+	font-weight: bold;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+.FormLabel2 {
+	border-right: 1px solid #BCBCBC;
+	font-weight: bold;
+	font-size:9px;
+	color: #4f4f4f;
+}
+.FormLabel3 {
+	border-right: 1px solid #BCBCBC;
+	text-align: center;
+}
+.FormArea{
+	margin-top: 10px;	
+}
+.FormBox{
+  border: 1px solid #727272;
+}
+.FormBox2{
+  border-top: 1px solid #727272;
+}
+pre.FormInform, pre{
+	font-size:9px;
+	line-height: 9px;
+	color: #4f4f4f;	
+}
+pre br{
+	line-height: 2px;
+}
+.icon {
+  font-family: "IcoMoon";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 15px;
+}
+		</style>
+	</head>
+	<body>
+		<table border="0" width="100%" class="FormGridBox" cellpadding="0" cellspacing="0">
+			<tr>
+				<td colspan="6" class="FormTitle" align="center">
+					Reporte de Reclamos
+				</td>
+			</tr>
+			<tr>
+				<td class="FormSubtitle" align="center" colspan="6">
+					<b>Fecha de emision del reporte:</b> ' . date("F/j/Y G:i", time()) . ' |
+					<b>Usuario:</b> ' . $user->name . ' ' . $user->lastName . '
+				</td>
+			</tr>
+			<tr>
+				<td class="FormSubtitle" align="center"><b>Tipo</b></td>
+				<td class="FormSubtitle" align="center"><b>Problema</b></td>
+				<td class="FormSubtitle" align="center"><b>Nombre del reclamo</b></td>
+				<td class="FormSubtitle" align="center"><b>Fecha de creaci&oacute;n</b></td>
+				<td class="FormSubtitle" align="center"><b>Usuario Reclamante</b></td>
+				<td class="FormSubtitle" align="center"><b>Verificaci&oacute;n</b></td>
+			</tr>' . $claims . '
+		</table>
+
+		<table border="0" width="100%" class="FormGridBox" cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="FormSubtitle" >El presente reporte fue realizado en la aplicacion <a href="www.desdemicalle.org">Desde mi Calle</a>, Todos los derechos reservados.</td>
+			</tr>
+		</table>
+
+	</body>
+</html>');
+
+        $headers = array(
+            'Content-Description'       => 'File Transfer',
+            'Content-Type' 				=> 'application/pdf',
+            'Content-Transfer-Encoding' => 'binary',
+            'Content-Disposition'		=> 'attachment; filename="file.pdf"',
+            'Expires'                   => 0,
+            'Cache-Control'             => 'must-revalidate, post-check=0, pre-check=0',
+            'Pragma'                    => 'public',
+        );
+
+        return Response::make($pdf->send(), 200, $headers);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @return Response

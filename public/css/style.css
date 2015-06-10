@@ -175,7 +175,7 @@ font-size: 14px;
 
 input {
 font-size: 14px;
-min-height: 40px;
+min-height: 20px;
 border-radius: 2px;
 line-height: 20px;
 padding: 10px;
@@ -855,6 +855,29 @@ font-style: italic;
 h4.problema{
     color: #fff;
     font-style: italic;
+}
+
+.form-control{
+    height: 30px;
+    padding: 2px 12px;
+}
+
+.input-group-addon {
+    padding: 3px 12px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 0 0;
+}
+
+.checkbox-inline {
+    height: 30px;
+}
+.text-danger {
+    color: #E04E4B;
+}
+.text-success {
+    color: #6EF470;
 }
 
 .reclamo .img-responsive {
