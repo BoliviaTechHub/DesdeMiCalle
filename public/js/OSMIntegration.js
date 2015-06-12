@@ -73,6 +73,9 @@
                 saludMarker = new LeafIcon({iconUrl: 'leaflet/images/salud-marker.png'}),
                 obraMarker = new LeafIcon({iconUrl: 'leaflet/images/obra-marker.png'}),
                 pluvialMarker = new LeafIcon({iconUrl: 'leaflet/images/pluvial-marker.png'}),
+                seguridadMarker = new LeafIcon({iconUrl: 'leaflet/images/marker-icon.png'}),
+                gasMarker = new LeafIcon({iconUrl: 'leaflet/images/marker-icon.png'}),
+                animalMarker = new LeafIcon({iconUrl: 'leaflet/images/animal-marker.png'}),
                 markers = new Array();
 
             markers['basura'] = basuraMarker;
@@ -82,6 +85,9 @@
             markers['salud'] = saludMarker;
             markers['obra'] = obraMarker;
             markers['pluvial'] = pluvialMarker;
+            markers['seguridad'] = seguridadMarker;
+            markers['gas'] = gasMarker;
+            markers['animal'] = animalMarker;
 
             // Creates Claim Map.
             if ($('#create-claim-map').length) {

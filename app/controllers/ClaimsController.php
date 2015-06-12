@@ -317,6 +317,7 @@ pre br{
     public function show($id) {
         $claim = Claim::find($id);
         $claim->childCategory = ClaimWorkCategory::find($claim->claimWorkCategoryId);
+        $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
         $user = User::find($claim->userId);
         return View::make('claims.show', [
             'claim' => $claim,

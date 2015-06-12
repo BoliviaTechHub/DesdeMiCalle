@@ -48,5 +48,20 @@
                 return 0;
             }
         });
+
+        // Support a Claim
+        $('#supportToClaimButton').click(function () {
+            $.ajax({
+                type: 'post',
+                url: '/supportToClaim',
+                data: {
+                    claimId: $('#supportToClaimButton').data('claimId')
+                },
+                success: function (lol) {
+                    //alert($('#supportToClaimButton').data('claimId'));
+                    alert(lol);
+                }
+            });
+        });
     });
 })(jQuery);

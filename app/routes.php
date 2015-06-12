@@ -39,6 +39,8 @@ Route::resource('publicWorks', 'PublicWorksController');
 
 Route::resource('informationRequests', 'InformationRequestsController');
 
+Route::resource('supportToClaim', 'SupportToClaimController');
+
 // Confide routes
 Route::get('users/create', 'UsersController@create');
 Route::post('users', 'UsersController@store');

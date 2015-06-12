@@ -682,7 +682,7 @@ border: 1px solid #fff;
 .obra:after{content: "\e996";}
 .reclamo .pluvial, .active .pluvial{background-color: #00511E;}
 .pluvial:after{content: "\e915";}
-.reclamo .animal, .active .animal{background-color: #E0BC32;}
+.reclamo .animal, .active .animal{background-color: #B4B0E3;}
 .animal:after{content: "\eab3";}
 .reclamo .bicho, .active .bicho{background-color: #00AA4F;}
 .bicho:after{content: "\e999";}
@@ -690,12 +690,12 @@ border: 1px solid #fff;
 .estadistica:after{content: "\e99b";}
 .reclamo .tv, .active .tv{background-color: #91966E;}
 .tv:after{content: "\e95b";}
-.reclamo .libreria, .active .libreria{background-color: #571D69;}
-.libreria:after{content: "\e920";}
+.reclamo .gas, .active .gas{background-color: #E0BC32;}
+.gas:after{content: "\e9a9";}
 .reclamo .mundo, .active .mundo{background-color: #0099CB;}
 .mundo:after{content: "\e9ca";}
-.reclamo .gente, .active .gente{background-color: #B4B0E3;}
-.gente:after{content: "\e9de";}
+.reclamo .seguridad, .active .seguridad{background-color: #571D69;}
+.seguridad:after{content: "\e9b2";}
 .reclamo .justicia, .active .justicia{background-color: #86ABD7;}
 .justicia:after{content: "\e921";}
 .reclamo .comercio, .active .comercio{background-color: #F28E98;}
