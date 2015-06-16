@@ -73,8 +73,8 @@
                 saludMarker = new LeafIcon({iconUrl: 'leaflet/images/salud-marker.png'}),
                 obraMarker = new LeafIcon({iconUrl: 'leaflet/images/obra-marker.png'}),
                 pluvialMarker = new LeafIcon({iconUrl: 'leaflet/images/pluvial-marker.png'}),
-                seguridadMarker = new LeafIcon({iconUrl: 'leaflet/images/marker-icon.png'}),
-                gasMarker = new LeafIcon({iconUrl: 'leaflet/images/marker-icon.png'}),
+                seguridadMarker = new LeafIcon({iconUrl: 'leaflet/images/seguridad-marker.png'}),
+                gasMarker = new LeafIcon({iconUrl: 'leaflet/images/gas-marker.png'}),
                 animalMarker = new LeafIcon({iconUrl: 'leaflet/images/animal-marker.png'}),
                 markers = new Array();
 

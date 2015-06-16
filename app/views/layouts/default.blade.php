@@ -67,6 +67,7 @@
                 <li><a href="/about_us">Acerca de nosotros</a></li>
                 {{--<li><a href="/publicWorks">Ver Obras Públicas</a></li>--}}
                 {{--<li><a href="/informationRequests">Pedir Información</a></li>--}}
+                <li><a href="/presentation" target="_blank">Presentación</a></li>
                 <li>
                     <form action="" method="get" id="search" class="search-form">
 <!--                        <input type="text" class="" name="k" data-default="100" placeholder="Buscar..."/><span class="icon-search icon-medium"></span>-->

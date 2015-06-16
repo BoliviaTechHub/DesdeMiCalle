@@ -13,6 +13,7 @@
 
 Route::get('/', function() {	return View::make('home'); });
 Route::get('/about_us', function () { return View::make('about_us'); });
+Route::get('/presentation', function () { return View::make('presentation'); });
 
 Route::get('register', 'UsersController@create');
 Route::get('users/admin', 'UsersController@admin');
