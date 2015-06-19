@@ -30,7 +30,9 @@ class ClaimsController extends \BaseController {
             $claim->user_name = $user->name . ' ' . $user->lastName;
             $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
             if($claimType == 'all' || $claimType == $claim->parentCategory->class) {
-                $claimsResult[] = $claim;
+                if($claim->isChecked) {
+                    $claimsResult[] = $claim;
+                }
             }
         }
 
