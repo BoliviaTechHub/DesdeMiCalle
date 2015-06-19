@@ -285,6 +285,9 @@ pre br{
         $claim->latitude = Input::get('latitude');
         $claim->longitude = Input::get('longitude');
 
+        // TODO Change this after presentation!!.. ò_ó
+        $claim->isChecked = true;
+
         // Put as name the first 15 characters of the description.
         if(!strlen($claim->title)) {
             $claim->title = substr($claim->description, 0, 25) . '...';
