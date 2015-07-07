@@ -53,3 +53,6 @@ Route::post('users/forgot_password', 'UsersController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
+
+// Internet.org routes :/
+Route::get('fbo/', function() { return View::make('fbo.home'); });
