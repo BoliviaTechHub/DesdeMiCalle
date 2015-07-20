@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="title">
-        <a href="/fbo" class="logo"><img src="{{asset('images/logo2.png')}}"></a>
+        <a href="/fbo" class="logo"><img src="{{asset('images/logo2.png')}}" width="300px"></a>
     </div>
     <a href="javascript:void(0)"><h1>Ver Reclamos</h1></a>
     <a href="javascript:void(0)"><h1>Hacer un Reclamo</h1></a>
@@ -33,8 +33,8 @@
         text-align: center;
         width: 100%;
         /*margin-top: 120px;*/
-        margin-top: 70px;
-        margin-bottom: 70px;
+        margin-top: 50px;
+        margin-bottom: 50px;
         color: #eee;
         font-weight: 800;
         font-size: 40px;
