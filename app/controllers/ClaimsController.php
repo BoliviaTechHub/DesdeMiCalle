@@ -289,14 +289,14 @@ pre br{
         $claim->isChecked = true;
 
         // Put as name the first 15 characters of the description.
-        if(!strlen($claim->title)) {
+        if (!strlen($claim->title)) {
             $claim->title = substr($claim->description, 0, 25) . '...';
         }
 
         $claim->save();
 
         // Put an image in the Claim if it exists.
-        if(Input::file('image')) {
+        if (Input::file('image')) {
             // The name of the file is created in this way to avoid repetitions.
             // user_id + claim_id + timestamp
             $file_name = Auth::id() . $claim->id . time() . '.' . Input::file('image')->getClientOriginalExtension();
@@ -311,7 +311,11 @@ pre br{
             $claim->save();
         }
 
-        return $this->index();
+        if (Input::get('fbo')) {
+            return $this->fboIndex();
+        } else {
+            return $this->index();
+        }
     }
 
     /**
@@ -377,5 +381,24 @@ pre br{
         }
 
         return $category->id;
+    }
+
+    public function fboIndex () {
+        $claims = DB::table('claim')->where('isChecked', 1)->orderBy('id', 'desc')->paginate(10);
+        return View::make('fbo.claimsIndex', [
+            'claims' => $claims
+        ]);
+    }
+
+    public function fboShow($id) {
+        return View::make('fbo.claimsShow', [
+            'claim' => Claim::find($id)
+        ]);
+    }
+
+    public function fboCreate() {
+        return View::make('fbo.claimsCreate', [
+            'categories' => ClaimWorkCategory::all()
+        ]);
     }
 }

@@ -8,9 +8,15 @@
     <div class="title">
         <a href="/fbo" class="logo"><img src="{{asset('images/logo2.png')}}" width="300px"></a>
     </div>
-    <a href="/fbo/claims"><h1>Ver Reclamos</h1></a>
-    <a href="/fbo/claims/create"><h1>Hacer un Reclamo</h1></a>
-    <a href="/fbo/about"><h1>Acerca de Nosotros</h1></a>
+
+    <div class="claims-container">
+        @foreach ($claims as $claim)
+            <h1><a href="/fbo/claim/{{$claim->id}}">{{$claim->title}}</a></h1>
+        @endforeach
+    </div>
+
+    {{$claims->links()}}
+
 </body>
 
 <style>

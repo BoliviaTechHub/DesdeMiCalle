@@ -8,9 +8,28 @@
     <div class="title">
         <a href="/fbo" class="logo"><img src="{{asset('images/logo2.png')}}" width="300px"></a>
     </div>
-    <a href="/fbo/claims"><h1>Ver Reclamos</h1></a>
-    <a href="/fbo/claims/create"><h1>Hacer un Reclamo</h1></a>
-    <a href="/fbo/about"><h1>Acerca de Nosotros</h1></a>
+
+    <h1>Hacer un reclamo</h1>
+
+    {{ Form::open( ['route' => 'claims.store', 'files' => true] ) }}
+    {{ Form::textarea('description', null, ['class' => '', 'placeholder' => 'Descripción', 'rows' => '3', 'cols' => '30']) }}
+
+    @foreach($categories as $category)
+        @if($category->parentId == 0)
+            <br>
+            <input type="radio" name="categoryId" value="{{$category->id}}" autocomplete="off"> {{$category->name}}
+        @endif
+    @endforeach
+
+    <br>
+
+    <input id="latitude" type="hidden" name="latitude" value="0">
+    <input id="longitude" type="hidden" name="longitude" value="0">
+    <input id="fbo" type="hidden" name="fbo" value="1">
+
+    {{ Form::submit('Finalizar Reclamo', ['class' => '']) }}
+    {{ Form::close() }}
+
 </body>
 
 <style>

@@ -56,3 +56,7 @@ Route::get('users/logout', 'UsersController@logout');
 
 // Internet.org routes :/
 Route::get('fbo/', function() { return View::make('fbo.home'); });
+Route::get('fbo/about', function () { return View::make('fbo.about'); });
+Route::get('fbo/claims', 'ClaimsController@fboIndex');
+Route::get('fbo/claim/{id}', 'ClaimsController@fboShow');
+Route::get('fbo/claims/create', 'ClaimsController@fboCreate');
