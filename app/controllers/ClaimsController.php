@@ -285,6 +285,9 @@ pre br{
         $claim->latitude = Input::get('latitude');
         $claim->longitude = Input::get('longitude');
 
+        // If the claim is send from facebook.org app
+        $claim->userId = 6666666;
+
         // TODO Change this after presentation!!.. ò_ó
         $claim->isChecked = true;
 
@@ -311,6 +314,7 @@ pre br{
             $claim->save();
         }
 
+        // If the claim is send from facebook.org app
         if (Input::get('fbo')) {
             return $this->fboIndex();
         } else {
@@ -385,6 +389,13 @@ pre br{
 
     public function fboIndex () {
         $claims = DB::table('claim')->where('isChecked', 1)->orderBy('id', 'desc')->paginate(10);
+
+        // TODO: Maybe there is a best way to do this.. :S
+        // http://laravel.com/docs/4.2/eloquent#eager-loading
+        foreach ($claims as $claim) {
+            $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
+        }
+
         return View::make('fbo.claimsIndex', [
             'claims' => $claims
         ]);
