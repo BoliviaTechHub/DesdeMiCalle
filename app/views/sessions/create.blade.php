@@ -14,7 +14,7 @@
             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
             {{--<div class="form-group">--}}
                 {{--<label>Puedes utilizar</label>--}}
-                <a class="btn btn-lg btn-clear btn-block" href="/users/loginWithFacebook"><span class="icon-facebook2 icon-float"></span> Facebook</a>
+                {{--<a class="btn btn-lg btn-clear btn-block" href="/users/loginWithFacebook"><span class="icon-facebook2 icon-float"></span> Facebook</a>--}}
                 {{--<a class="btn btn-lg btn-clear btn-block" href="/users/loginWithTwitter"><span class="icon-twitter2 icon-float"></span> Twitter</a>--}}
                 {{--<a class="btn btn-lg btn-clear btn-block" href="/users/loginWithGoogle"><span class="icon-google-plus2 icon-float"></span>Google +</a>--}}
             {{--</div>--}}
