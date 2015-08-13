@@ -31,7 +31,17 @@
                         <span> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</span>
                     </div>
                     <p>{{$claim->description}}</p>
-<!--                    <p>Quiero compartir este reclamo en: <a href="javascript:void(0)"><i class="icon-facebook2 icon-medium"></i></a></p>-->
+                    <p>Quiero compartir este reclamo en:
+                        <a id="fb-share"
+                           style='text-decoration:none;'
+                           type="icon_link"
+                           onClick="window.open('http://www.facebook.com/sharer.php?s=100&p[title]={{$claim->title}}&p[summary]={{$claim->description}}&p[url]={{URL::to('/');}}/claims/{{$claim->id}}','sharer','toolbar=0,status=0,width=580,height=325');"
+                           href="javascript: void(0)">
+                            <i class="icon-facebook2 icon-medium"></i>
+                        </a>
+                        {{--<a href="#"><i class="icon-twitter2 icon-medium"></i></a>--}}
+                        {{--<a href="#"><i class="icon-google-plus2 icon-medium"></i></a>--}}
+                    </p>
                     @if ($claim->image_url)
                         <img class="img-responsive" src="/{{$claim->image_url}}"/>
                     @endif
