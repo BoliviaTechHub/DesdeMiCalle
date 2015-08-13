@@ -35,7 +35,7 @@
                         <a id="fb-share"
                            style='text-decoration:none;'
                            type="icon_link"
-                           onClick="window.open('http://www.facebook.com/sharer.php?s=100&p[title]={{$claim->title}}&p[summary]={{$claim->description}}&p[url]={{URL::to('/');}}/claims/{{$claim->id}}','sharer','toolbar=0,status=0,width=580,height=325');"
+                           onClick="window.open('http://www.facebook.com/sharer.php?s=100&p[title]={{$claim->title}}&p[summary]={{substr($claim->description, 0, 30) . '...'}}&p[url]={{URL::to('/');}}/claims/{{$claim->id}}','sharer','toolbar=0,status=0,width=580,height=325');"
                            href="javascript: void(0)">
                             <i class="icon-facebook2 icon-medium"></i>
                         </a>
