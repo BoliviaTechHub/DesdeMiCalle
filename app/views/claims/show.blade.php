@@ -39,7 +39,9 @@
                            href="javascript: void(0)">
                             <i class="icon-facebook2 icon-medium"></i>
                         </a>
-                        {{--<a href="#"><i class="icon-twitter2 icon-medium"></i></a>--}}
+                        <a class="twitter popup" href="http://twitter.com/share?text={{urlencode($claim->title) . 'via: @desdemicalle ' . urlencode('#DesdeMiCalle')}}">
+                            <i class="icon-twitter2 icon-medium"></i>
+                        </a>
                         {{--<a href="#"><i class="icon-google-plus2 icon-medium"></i></a>--}}
                     </p>
                     @if ($claim->image_url)
