@@ -342,6 +342,8 @@ class UsersController extends Controller
                 $usersController = new UsersController();
                 $username = $usersController->createUsername($result['first_name']);
                 $user = $usersController->signupWithRandomPassword($username, $result['email'], $result['id']);
+                echo 'facebook_first_name => ' . $result['first_name'] . '</br>';
+                echo 'username => ' . $username . '</br>';
                 echo 'userid => ' . $user->id;
             }
 
