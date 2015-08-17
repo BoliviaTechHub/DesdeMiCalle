@@ -300,6 +300,8 @@ class UsersController extends Controller
         $randomPassword = md5(time());
         $repo = App::make('UserRepository');
 
+        echo 'randomPassword => ' . $randomPassword . '</br>';
+
         return $repo->signup(array(
             'username' => $username,
             'email' => $email,
