@@ -28,6 +28,11 @@ class UserRepository
         $user->username = array_get($input, 'username');
         $user->facebook_id = array_get($input, 'facebook_id');
 
+        echo '$user->email => ' . $user->email . '</br>';
+        echo '$user->password => ' . $user->password . '</br>';
+        echo '$user->username => ' . $user->username . '</br>';
+        echo '$user->facebook_id => ' . $user->facebook_id . '</br>';
+
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's
         // auto validation.
@@ -38,6 +43,8 @@ class UserRepository
 
         // Save if valid. Password field will be hashed before save
         $this->save($user);
+
+        echo 'id??.. o_O ... ' . $user->id . '</br>';
 
         return $user;
     }
