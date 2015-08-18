@@ -19,6 +19,8 @@ class UserRepository
      */
     public function signup($input)
     {
+        echo ':O :O :O :O </br>';
+
         $user = new User;
 
         $user->email    = array_get($input, 'email');
