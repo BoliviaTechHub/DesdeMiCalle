@@ -337,18 +337,14 @@ class UsersController extends Controller
             // Verify if the user already exists.
             $user = User::where('facebook_id', $result['id'])->first();
 
-            if(isset($user->id)) {
-                Auth::loginUsingId($user->id);
-                return Redirect::to('/');
-            } else {
+            if(!isset($user->id)) {
                 $usersController = new UsersController();
                 $username = $usersController->createUsername($result['first_name']);
                 $user = $usersController->signupWithRandomPassword($username, $result['email'], $result['id']);
-                echo 'facebook_first_name => ' . $result['first_name'] . '</br>';
-                echo 'username => ' . $username . '</br>';
-                echo 'userid => ' . $user->id;
             }
 
+            Auth::loginUsingId($user->id);
+            return Redirect::to('/');
         }
         // if not ask for permission first
         else {
