@@ -307,7 +307,7 @@ class UsersController extends Controller
             'email' => $email,
             'facebook_id' => $facebookId,
             'password' => $randomPassword,
-            'password_confirmation' => $randomPassword
+//            'password_confirmation' => $randomPassword
         ));
     }
 

@@ -286,7 +286,9 @@ pre br{
         $claim->longitude = Input::get('longitude');
 
         // If the claim is send from facebook.org app
-        $claim->userId = 6666666;
+        if (Input::get('fbo')) {
+            $claim->userId = 6666666;
+        }
 
         // TODO Change this after presentation!!.. ò_ó
         $claim->isChecked = true;
