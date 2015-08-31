@@ -63,5 +63,10 @@
                 }
             });
         });
+
+        // Shows a Share Popup if the Claim is new.
+        if ($('#claimsIndex').hasClass('newClaim')) {
+            $('#shareNewClaimModal').modal('show');
+        }
     });
 })(jQuery);

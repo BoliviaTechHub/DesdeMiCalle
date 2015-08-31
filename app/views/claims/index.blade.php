@@ -6,6 +6,7 @@
     <div id="sidebar-wrapper">
         <div id="sidebar-wrapper-content">
             <img class="img-responsive logo" src="{{asset('images/logo2.png')}}"/>
+            <div id="claimsIndex" class="{{$newClaimClass}}"></div>
             <div class="section-title">
                 <h3>RECLAMOS REALIZADOS</h3>
                 <p>Aquí se listan todos los reclamos registrados. <br/>También puedes:</p>
@@ -50,6 +51,7 @@
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
+
     <!-- Page Content -->
     <div id="page-content-wrapper">
         <a href="#menu-toggle" class="btn-toogle" id="menu-toggle"><span class="icon-cross icon-medium"></span></a>
@@ -58,5 +60,38 @@
         </div>
     </div>
     <!-- /#page-content-wrapper -->
+
+    <!-- Modal -->
+    @if(strlen($newClaimId))
+    <div class="modal fade" id="shareNewClaimModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="myModalLabel">Socializa el reclamo!</h3>
+          </div>
+          <div class="modal-body">
+              <h4>Comparte tu reclamo en las redes sociales:</h4>
+              <h3>
+              <a id="fb-share"
+                 style='text-decoration:none;'
+                 type="icon_link"
+                 onClick="window.open('http://www.facebook.com/sharer.php?s=100&p[title]={{urlencode($newClaim->title)}}&p[summary]={{urlencode(substr($newClaim->description, 0, 30)) . '...'}}&p[url]={{URL::to('/');}}/claims/{{$newClaim->id}}&p[images][0]={{urlencode($newClaim->image_url)}}','sharer','toolbar=0,status=0,width=580,height=325');"
+                 href="javascript: void(0)">
+                  <i class="icon-facebook2 icon-big"></i>
+              </a>
+              <a class="twitter popup" href="http://twitter.com/share?text={{urlencode($newClaim->title) . 'via: @desdemicalle ' . urlencode('#DesdeMiCalle')}}">
+                  <i class="icon-twitter2 icon-big"></i>
+              </a>
+              {{--<a href="#"><i class="icon-google-plus2 icon-medium"></i></a>--}}
+              </h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    @endif
 </div>
 @stop

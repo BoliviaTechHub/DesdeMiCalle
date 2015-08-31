@@ -564,7 +564,7 @@ border-left: 1px solid #000;
 color: #525252;
 background-color: #000;
 border-radius: 0;
-z-index: 9999;
+z-index: 1049;
 transition: all ease 0.4s;
 }
 .btn-toogle:hover{

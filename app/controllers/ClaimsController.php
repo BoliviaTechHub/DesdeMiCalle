@@ -18,7 +18,7 @@ class ClaimsController extends \BaseController {
      *
      * @return Response
      */
-    public function index()	{
+    public function index($newClaimId = '')	{
         isset($_GET['type']) ? $claimType = $_GET['type'] : $claimType = 'all';
         $claims = Claim::all()->reverse();
 
@@ -36,12 +36,23 @@ class ClaimsController extends \BaseController {
             }
         }
 
+        // Get the new Claim.
+        $newClaim = new stdClass();
+        $newClaimClass = '';
+        if(strlen($newClaimId)) {
+            $newClaim = Claim::find($newClaimId);
+            $newClaimClass = 'newClaim';
+        }
+
         $claims = $claimsResult;
         return View::make('claims.index', [
             'claims' => $claims,
             'categories' => ClaimWorkCategory::all(),
             'neighborhoods' => Neighborhood::all(),
-            'claimType' => $claimType
+            'claimType' => $claimType,
+            'newClaimClass' => $newClaimClass,
+            'newClaimId' => $newClaimId,
+            'newClaim' => $newClaim
         ]);
     }
 
@@ -320,7 +331,7 @@ pre br{
         if (Input::get('fbo')) {
             return $this->fboIndex();
         } else {
-            return $this->index();
+            return $this->index($claim->id);
         }
     }
 
