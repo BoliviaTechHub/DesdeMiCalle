@@ -406,6 +406,8 @@ pre br{
         // TODO: Maybe there is a best way to do this.. :S
         // http://laravel.com/docs/4.2/eloquent#eager-loading
         foreach ($claims as $claim) {
+            $user = User::find($claim->userId);
+            $claim->user_name = $user->name . ' ' . $user->lastName;
             $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
         }
 
@@ -415,8 +417,13 @@ pre br{
     }
 
     public function fboShow($id) {
+        $claim = Claim::find($id);
+        $user = User::find($claim->userId);
+        $claim->user_name = $user->name . ' ' . $user->lastName;
+        $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
+
         return View::make('fbo.claimsShow', [
-            'claim' => Claim::find($id)
+            'claim' => $claim
         ]);
     }
 

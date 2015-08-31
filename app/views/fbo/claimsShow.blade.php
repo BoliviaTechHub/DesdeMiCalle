@@ -1,49 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-    <div class="title">
-        <a href="/fbo" class="logo"><img src="{{asset('images/logo2.png')}}" width="300px"></a>
+@extends('fbo.default')
+@section('content')
+    <a href="/fbo/claims" class="button button-primary">< Volver</a>
+    <div class="reclamo">
+        <div class="col-xs-2 text-right">
+            <a class="icon-reclamo" href="javascript:void(0)"><img src="{{asset('fbo_files/img/icons/' . $claim->parentCategory->class . '.png')}}"></a>
+        </div>
+        <div class="col-xs-10 text-left">
+            <h3>
+{{--                <small>{{$claim->title}}</small><br/>--}}
+                {{$claim->title}}<br/><small>{{$claim->user_name}}</small><br/>
+                @if($claim->isChecked)
+                    <span class="badge success">Verificado</span>
+                @else
+                    <span class="badge danger">No Verificado</span>
+                @endif
+                <small><i> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</i></small>
+            </h3>
+            <p>{{$claim->description}}</p>
+            {{--<img src="img/reclamo-img.jpg">--}}
+        </div>
     </div>
-
-    <h1>{{$claim->title}}</h1>
-    <h2>{{$claim->description}}</h2>
-
-</body>
-
-<style>
-    body {
-        font-family: sans-serif;
-        background: #181818;
-        height: 400px;
-        padding-top: 40px;
-        text-align: center;
-    }
-
-    .title {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0px 20px;
-        position: relative;
-    }
-
-    h1 {
-        text-align: center;
-        width: 100%;
-        /*margin-top: 120px;*/
-        margin-top: 50px;
-        margin-bottom: 50px;
-        color: #eee;
-        font-weight: 800;
-        font-size: 40px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>
-
-</html>
+@stop

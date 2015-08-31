@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-    <div class="title">
-        <a href="/fbo" class="logo"><img src="{{asset('images/logo2.png')}}" width="300px"></a>
-    </div>
-
+@extends('fbo.default')
+@section('content')
+    <a href="/fbo" class="button button-primary">< Volver</a>
     <h3 class="titulo">Acerca del proyecto</h3>
     <p>
         Desde mi calle es una plataforma que permite a las personas enviar reportes sobre daños, desperfectos, vandalismo y otros problemas de nuestra ciudad desde su computadora o celular. Es decir, cuando encuentres un problema en tu calle vas a poder entrar en la plataforma desde tu computadora o celular y reportarlo.
@@ -34,39 +26,4 @@
     <p>
         Como grupo de trabajo ACM - SIM tiene 10 años de experiencia en estas actividades, habiendo creado (o participado en su creacion) de las competencias TIC mas importantes de Bolivia, pero legalmente somos una ONG con 1 año de antiguedad.
     </p>
-
-</body>
-
-<style>
-    body {
-        font-family: sans-serif;
-        background: #181818;
-        height: 400px;
-        padding-top: 40px;
-        text-align: center;
-    }
-
-    .title {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0px 20px;
-        position: relative;
-    }
-
-    h1 {
-        text-align: center;
-        width: 100%;
-        /*margin-top: 120px;*/
-        margin-top: 50px;
-        margin-bottom: 50px;
-        color: #eee;
-        font-weight: 800;
-        font-size: 40px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>
-
-</html>
+@stop

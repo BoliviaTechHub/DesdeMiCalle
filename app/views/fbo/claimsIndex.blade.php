@@ -1,54 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-    <div class="title">
-        <a href="/fbo" class="logo"><img src="{{asset('images/logo2.png')}}" width="300px"></a>
-    </div>
-
-    <div class="claims-container">
-        @foreach ($claims as $claim)
-            <h1><a href="/fbo/claim/{{$claim->id}}">{{$claim->title}}</a></h1>
-        @endforeach
-    </div>
+@extends('fbo.default')
+@section('content')
+    <a href="/fbo" class="button button-primary">< Volver</a>
+    <a class="btn-clear btn-reclamo" href="/fbo/claims/create">Quiero publicar un reclamo</a>
+    @foreach ($claims as $claim)
+        <div class="reclamo">
+            <div class="col-xs-2 text-right">
+                <a class="icon-reclamo" href="/fbo/claim/{{$claim->id}}"><img src="{{asset('fbo_files/img/icons/' . $claim->parentCategory->class . '.png')}}"></a>
+            </div>
+            <div class="col-xs-10 text-left">
+                <h3>
+                    <a href="/fbo/claim/{{$claim->id}}">{{$claim->title}}</a><br/><small>{{$claim->user_name}}</small><br/>
+                    @if($claim->isChecked)
+                        <span class="badge success">Verificado</span>
+                    @else
+                        <span class="badge danger">No Verificado</span>
+                    @endif
+                    <small><i> {{date("F/j/Y G:i", strtotime($claim->created_at))}}</i></small>
+                </h3>
+                <p>{{$claim->description}}</p>
+            </div>
+        </div>
+    @endforeach
 
     {{$claims->links()}}
-
-</body>
-
-<style>
-    body {
-        font-family: sans-serif;
-        background: #181818;
-        height: 400px;
-        padding-top: 40px;
-        text-align: center;
-    }
-
-    .title {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0px 20px;
-        position: relative;
-    }
-
-    h1 {
-        text-align: center;
-        width: 100%;
-        /*margin-top: 120px;*/
-        margin-top: 50px;
-        margin-bottom: 50px;
-        color: #eee;
-        font-weight: 800;
-        font-size: 40px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>
-
-</html>
+@stop
