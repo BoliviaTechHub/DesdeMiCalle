@@ -6,12 +6,14 @@
 //use Illuminate\Auth\Reminders\RemindableInterface;
 use Zizaco\Confide\ConfideUser;
 use Zizaco\Confide\ConfideUserInterface;
+use Zizaco\Entrust\HasRole;
 
 //class User extends Eloquent implements UserInterface, RemindableInterface, ConfideUserInterface {
 class User extends Eloquent implements ConfideUserInterface {
 
 //  use UserTrait, RemindableTrait, ConfideUser;
     use ConfideUser;
+    use HasRole;
 
     // This fields can be mass assigned.
     protected $fillable = ['username', 'email', 'password', 'name', 'lastName'];

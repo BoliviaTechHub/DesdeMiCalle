@@ -121,8 +121,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-    'Zizaco\Confide\ServiceProvider',
-    'Artdarek\OAuth\OAuthServiceProvider',
+        'Zizaco\Confide\ServiceProvider',
+        'Zizaco\Entrust\EntrustServiceProvider',
+        'Artdarek\OAuth\OAuthServiceProvider',
         'Ignited\Pdf\PdfServiceProvider',
 	),
 
@@ -190,8 +191,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-    'Confide'           => 'Zizaco\Confide\Facade',
-    'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
+        'Confide'           => 'Zizaco\Confide\Facade',
+        'Entrust'           => 'Zizaco\Entrust\EntrustFacade',
+        'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
         'PDF'             => 'Ignited\Pdf\Facades\Pdf'
 	),
 

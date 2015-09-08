@@ -11,12 +11,21 @@ class DatabaseSeeder extends Seeder {
 	{
         $this->call('UsersTableSeeder');
         $this->command->info('Users table seeded!');
+
         $this->call('ClaimTableSeeder');
         $this->command->info('Claim table seeded!');
+
         $this->call('PublicWorkTableSeeder');
         $this->command->info('PublicWork table seeded!');
+
         $this->call('ClaimWorkCategoryTableSeeder');
         $this->command->info('ClaimWorkCategory table seeded!');
+
+        $this->call('RolesSeeder');
+        $this->command->info('Roles Seeded!');
+
+        $this->call('PermissionsSeeder');
+        $this->command->info('Permissions Seeded!');
 	}
 }
 
@@ -102,5 +111,80 @@ class ClaimWorkCategoryTableSeeder extends Seeder {
         ClaimWorkCategory::create(['name' => 'Deberían hacer una obra', 'parentId' => $cloacasYOPluviales->id, 'status' => 1]);
         ClaimWorkCategory::create(['name' => 'Hay una inundación en el barrio', 'parentId' => $cloacasYOPluviales->id, 'status' => 1]);
         ClaimWorkCategory::create(['name' => 'No vino el camión vactor/atmosférico', 'parentId' => $cloacasYOPluviales->id, 'status' => 1]);
+    }
+}
+
+class RolesSeeder extends Seeder
+{
+    public function run()
+    {
+        // Admin Role.
+        $adminRole = new Role;
+        $adminRole->name = 'admin';
+        $adminRole->save();
+
+        // Checker Role.
+        $checkerRole = new Role;
+        $checkerRole->name = 'checker';
+        $checkerRole->save();
+
+        $adminUser = User::where('username', '=', 'admin')->first();
+        $adminUser->attachRole(Role::where('name', '=', 'admin')->first());
+        $jhtanUser = User::where('username', '=', 'jhtan')->first();
+        $jhtanUser->attachRole(Role::where('name', '=', 'admin')->first());
+
+
+        //// :S TODO: There are problems with the PermissionsSeeder Class. :S
+        // Edit Users Permission.
+        $editUsers = new Permission;
+        $editUsers->name = 'edit_users';
+        $editUsers->display_name = 'Edit Users';
+        $editUsers->save();
+
+        // Edit Claims Permission.
+        $editClaims = new Permission;
+        $editClaims->name = 'edit_claims';
+        $editClaims->display_name = 'Edit Claims';
+        $editClaims->save();
+
+        $editUsersPermission = Permission::where('name', '=', 'edit_users')->first();
+        $editClaimsPermission = Permission::where('name', '=', 'edit_claims')->first();
+
+        // Grant privileges to admin role.
+        $adminRole = Role::where('name', '=', 'admin')->first();
+        $adminRole->perms()->sync(array($editUsersPermission->id, $editClaimsPermission->id));
+
+        //Grant privileges to checker role.
+        $checkerRole = Role::where('name', '=', 'checker')->first();
+        $checkerRole->perms()->sync(array($editClaimsPermission->id));
+    }
+}
+
+class PermissionsSeeder extends Seeder
+{
+    public function run()
+    {
+//        // Edit Users Permission.
+//        $editUsers = new Permission;
+//        $editUsers->name = 'edit_users';
+//        $editUsers->display_name = 'Edit Users';
+//        $editUsers->save();
+//
+//        // Edit Claims Permission.
+//        $editClaims = new Permission;
+//        $editClaims->name = 'edit_claims';
+//        $editClaims->display_name = 'Edit Claims';
+//        $editClaims->save();
+//
+//        $editUsersPermission = Permission::where('name', '=', 'edit_users')->first();
+//        $editClaimsPermission = Permission::where('name', '=', 'edit_claims')->first();
+//
+//        // Grant privileges to admin role.
+//        $adminRole = Role::where('name', '=', 'admin')->first();
+//        $adminRole->perms()->sync(array($editUsersPermission->id, $editClaimsPermission->id));
+//
+//        //Grant privileges to checker role.
+//        $checkerRole = Role::where('name', '=', 'checker')->first();
+//        $checkerRole->perms()->sync(array($editClaimsPermission->id));
     }
 }

@@ -78,11 +78,19 @@
         <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
                 @if(!Auth::check())
-                <li><a class="btn btn-sm btn-info" href="/users/login"><span class="icon-key2 icon-medium"></span> Ingresa</a></li>
-                <li><a class="btn btn-sm btn-success" href="/register"><span class="icon-clipboard icon-medium"></span> ¡Regístrate!</a></li>
+                    <li><a class="btn btn-sm btn-info" href="/users/login"><span class="icon-key2 icon-medium"></span> Ingresa</a></li>
+                    <li><a class="btn btn-sm btn-success" href="/register"><span class="icon-clipboard icon-medium"></span> ¡Regístrate!</a></li>
                 @else
-                <li><a class="btn btn-sm btn-info" href="/users/show/{{Auth::user()->username}}"><i class="fa fa-user"></i> Hola! {{Auth::user()->username}}</a></li>
-                <li><a class="btn btn-sm btn-success" href="/logout"><i class="fa fa-sign-out"></i> Salir</a></li>
+                    @if(User::find(Auth::id())->can('edit_users'))
+                        <li><a class="btn btn-sm btn-info" href="/users/admin"><i class="fa fa-sign-out"></i> Administrar Usuarios</a></li>
+                    @endif
+
+                    @if(User::find(Auth::id())->can('edit_claims'))
+                        <li><a class="btn btn-sm btn-info" href="/claims/admin"><i class="fa fa-sign-out"></i> Administrar Reclamos</a></li>
+                    @endif
+
+                    <li><a class="btn btn-sm btn-info" href="/users/show/{{Auth::user()->username}}"><i class="fa fa-user"></i> Hola! {{Auth::user()->username}}</a></li>
+                    <li><a class="btn btn-sm btn-success" href="/logout"><i class="fa fa-sign-out"></i> Salir</a></li>
                 @endif
             </ul>
         </div>

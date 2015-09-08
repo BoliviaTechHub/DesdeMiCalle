@@ -7,10 +7,11 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "zizaco/confide": "~4.3@dev",
+        "zizaco/entrust": "1.2.*@dev",
         "artdarek/oauth-4-laravel": "dev-master",
-      "ignited/laravel-pdf": "1.*",
-      "h4cc/wkhtmltopdf-i386": "*",
-      "h4cc/wkhtmltopdf-amd64": "*"
+        "ignited/laravel-pdf": "1.*",
+        "h4cc/wkhtmltopdf-i386": "*",
+        "h4cc/wkhtmltopdf-amd64": "*"
 	},
 	"autoload": {
 		"classmap": [

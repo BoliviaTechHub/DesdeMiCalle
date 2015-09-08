@@ -216,8 +216,11 @@ class UsersController extends Controller
      * @return mixed
      */
     public function edit($username) {
-        return 'You\'re here, we\'re not..';
-//        return View::make('users.edit', ['user' => User::whereUsername($username)->first()]);
+        if(Auth::check() && User::find(Auth::id())->can('edit_users')) {
+            return View::make('users.edit', ['user' => User::whereUsername($username)->first()]);
+        } else {
+            return View::make('forbidden');
+        }
     }
 
     /**
@@ -249,6 +252,20 @@ class UsersController extends Controller
         $user->lastName = Input::get('lastName');
         $user->save();
 
+        // Toggle the Checker role in the user.
+        if(Input::get('isChecker') && !$user->hasRole('checker')) {
+            $user->attachRole(Role::where('name', '=', 'checker')->first()->id);
+        } else if(!Input::get('isChecker') && $user->hasRole('checker')) {
+            DB::table('assigned_roles')->where('user_id', $user->id)->where('role_id', Role::where('name', '=', 'checker')->first()->id)->delete();
+        }
+
+        // Toggle the Admin role in the user.
+        if(Input::get('isAdmin') && !$user->hasRole('admin')) {
+            $user->attachRole(Role::where('name', '=', 'admin')->first()->id);
+        } else if(!Input::get('isAdmin') && $user->hasRole('admin')) {
+            DB::table('assigned_roles')->where('user_id', $user->id)->where('role_id', Role::where('name', '=', 'admin')->first()->id)->delete();
+        }
+
         return Redirect::to('/users/show/' . $user->username);
     }
 
@@ -263,7 +280,11 @@ class UsersController extends Controller
      * @return mixed
      */
     public function admin() {
-        return View::make('users.admin', array('users' => User::all()));
+        if(Auth::check() && User::find(Auth::id())->can('edit_users')) {
+            return View::make('users.admin', array('users' => User::all()));
+        } else {
+            return View::make('forbidden');
+        }
     }
 
     /**
