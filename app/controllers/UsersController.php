@@ -266,7 +266,8 @@ class UsersController extends Controller
             DB::table('assigned_roles')->where('user_id', $user->id)->where('role_id', Role::where('name', '=', 'admin')->first()->id)->delete();
         }
 
-        return Redirect::to('/users/show/' . $user->username);
+//        return Redirect::to('/users/show/' . $user->username);
+        return Redirect::to('/users/admin');
     }
 
     public function delete() {

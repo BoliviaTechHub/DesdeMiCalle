@@ -34,7 +34,11 @@ Route::get('logout', 'SessionsController@destroy');
 
 Route::get('claims/get_report', array('as' => 'claims.get_report', 'uses' => 'ClaimsController@get_report'));
 Route::get('claims/export', array('as' => 'claims.export', 'uses' => 'ClaimsController@export'));
+Route::get('claims/admin', 'ClaimsController@admin');
+Route::get('claims/edit/{id}', 'ClaimsController@edit');
 Route::resource('claims', 'ClaimsController');
+Route::post('claims/update', array('as' => 'claims.update', 'uses' => 'ClaimsController@update'));
+//Route::post('users/delete', array('as' => 'users.delete', 'uses' => 'UsersController@delete'));
 
 Route::resource('publicWorks', 'PublicWorksController');
 

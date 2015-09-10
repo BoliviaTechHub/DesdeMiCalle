@@ -351,6 +351,17 @@ pre br{
         ]);
     }
 
+    public function admin()
+    {
+        if(Auth::check() && User::find(Auth::id())->can('edit_claims')) {
+            return View::make('claims.admin', array(
+                'claims' => Claim::all()->reverse()
+            ));
+        } else {
+            return View::make('forbidden');
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -359,7 +370,11 @@ pre br{
      */
     public function edit($id)
     {
-        //
+        if(Auth::check() && User::find(Auth::id())->can('edit_claims')) {
+            return View::make('claims.edit', array('claim' => Claim::find($id)));
+        } else {
+            return View::make('forbidden');
+        }
     }
 
     /**
@@ -368,9 +383,23 @@ pre br{
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+//    TODO: public function update($id)
+    public function update()
     {
-        //
+        $claim = Claim::find(Input::get('id'));
+
+        $claim->title = Input::get('title');
+        $claim->description = Input::get('description');
+
+        if(Input::get('isChecked')) {
+            $claim->isChecked = true;
+        } else {
+            $claim->isChecked = false;
+        }
+
+        $claim->save();
+
+        return Redirect::to('/claims/' . $claim->id);
     }
 
     /**

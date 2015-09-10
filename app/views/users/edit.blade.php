@@ -49,13 +49,14 @@
                 <div class="form-group col-md-6">
                     <label class="col-md-4 control-label">Admin</label>
                     <div class="col-md-8">
-                        <div class="onoffswitch">
-                            <input type="checkbox" name="isAdmin" class="onoffswitch-checkbox" id="myonoffswitch" @if($user->hasRole('admin')) checked @endif>
-                            <label class="onoffswitch-label" for="myonoffswitch">
-                                <span class="onoffswitch-inner"></span>
-                                <span class="onoffswitch-switch"></span>
-                            </label>
-                        </div>
+                        {{--<div class="onoffswitch">--}}
+                            <input type="checkbox" name="isAdmin" @if($user->hasRole('admin')) checked @endif>
+                            {{--<input type="checkbox" name="isAdmin" class="onoffswitch-checkbox" id="myonoffswitch" @if($user->hasRole('admin')) checked @endif>--}}
+                            {{--<label class="onoffswitch-label" for="myonoffswitch">--}}
+                                {{--<span class="onoffswitch-inner"></span>--}}
+                                {{--<span class="onoffswitch-switch"></span>--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
                 {{--<div class="form-group col-md-6">--}}
