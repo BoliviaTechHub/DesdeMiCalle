@@ -15,6 +15,7 @@
         <div class="tab-content well">
             <div class="tab-pane" id="tab1">
                 <label>Es un reclamo <a href=""></a>cerca de:</label><br/>
+                {{ $errors->first('claimWorkCategoryId', '<div class="alert alert-error alert-danger">Seleccione una sub-categoría por favor.</div>') }}
                 <ul class="nav nav-pills" id="reclamos-descripcion">
                     @if ($categories->count())
                         @foreach ($categories as $category)
@@ -48,6 +49,8 @@
                             @endif
                         @endforeach
                     @endif
+
+                    {{ $errors->first('description', '<div class="alert alert-error alert-danger">Coloque una descripción a su reclamo por favor.</div>') }}
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Descríbenos el problema</label>
                         <div class="col-sm-10">

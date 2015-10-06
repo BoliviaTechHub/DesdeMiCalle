@@ -13,7 +13,15 @@ class Claim extends Eloquent {
    * @var string
    */
 
-  protected $table = 'claim';
+    protected $table = 'claim';
+    protected $fillable = ['title', 'description', 'userId', 'neighborhoodId', 'claimWorkCategoryId', 'latitude', 'longitude'];
+
+    public static $rules = [
+        'description' => 'required',
+        'claimWorkCategoryId' => 'required',
+    ];
+
+    public $errors;
 
     public function ClaimWorkCategory() {
         return $this->belongsTo('ClaimWorkCategory', 'claimWorkCategoryId');
@@ -21,5 +29,19 @@ class Claim extends Eloquent {
 
     public function User() {
         return $this->belongsTo('User', 'userId');
+    }
+
+    /*
+     * Validation
+     */
+    public function isValid() {
+        $validation = Validator::make( $this->attributes, static::$rules );
+
+        if($validation->passes()) {
+            return true;
+        }
+
+        $this->errors = $validation->messages();
+        return false;
     }
 } 

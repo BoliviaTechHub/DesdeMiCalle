@@ -287,6 +287,8 @@ pre br{
      */
     public function store()
     {
+        $input = Input::all();
+
         $claim = new Claim();
         $claim->title = Input::get('title');
         $claim->description = Input::get('description');
@@ -295,6 +297,12 @@ pre br{
         $claim->claimWorkCategoryId = Input::get('categoryId');
         $claim->latitude = Input::get('latitude');
         $claim->longitude = Input::get('longitude');
+
+        // Validation
+        $input['claimWorkCategoryId'] = Input::get('categoryId');
+        if(!$this->claim->fill($input)->isValid()) {
+            return Redirect::back()->withInput()->withErrors($this->claim->errors);
+        }
 
         // If the claim is send from facebook.org app
         if (Input::get('fbo')) {
