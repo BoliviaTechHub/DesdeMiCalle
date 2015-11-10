@@ -35,7 +35,7 @@
                                     <td>No Verificado</td>
                                 @endif
                                 <td><a class="btn btn-xs btn-default" href="/claims/edit/{{$claim->id}}"><i class="icon-pencil"></i></a></td>
-                                {{--<td><a class="btn btn-xs btn-primary delete-user" href="javascript:void(0)" data-id="22" data-username="admin"><i class="icon-cross"></i></a></td>--}}
+                                <td><a class="btn btn-xs btn-primary delete-claim" href="javascript:void(0)" data-id="{{$claim->id}}" data-title="{{$claim->title}}"><i class="icon-cross"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>

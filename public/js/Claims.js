@@ -67,6 +67,23 @@
         // Shows a Share Popup if the Claim is new.
         if ($('#claimsIndex').hasClass('newClaim')) {
             $('#shareNewClaimModal').modal('show');
-        }
+        };
+
+        $('.delete-claim').click(function () {
+          var ans = confirm('Realmente quiere borrar el reclamo de título: "' + $(this).data('title') + '" ?');
+          if (ans == true) {
+            $.ajax({
+              type: 'post',
+              url: 'delete',
+              data: {
+                id: $(this).data('id')
+              },
+              success: function () {
+                location.reload();
+              }
+            });
+          }
+        });
+
     });
 })(jQuery);

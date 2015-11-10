@@ -30,9 +30,9 @@ class ClaimsController extends \BaseController {
             $claim->user_name = $user->name . ' ' . $user->lastName;
             $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
             if($claimType == 'all' || $claimType == $claim->parentCategory->class) {
-                if($claim->isChecked) {
+//                if($claim->isChecked) {
                     $claimsResult[] = $claim;
-                }
+//                }
             }
         }
 
@@ -333,6 +333,17 @@ pre br{
             Input::file('image')->move($claimsImagesFolder, $file_name);
             $claim->image_url = $claimsImagesPublicUrl . $file_name;
             $claim->save();
+
+            // Fucking Imagick.. :|
+//            // Saving a small copy of the image.
+//            $claimsSmallImagesPublicUrl = 'images/uploaded/claims/small/';
+//            $claimsSmallImagesFolder = public_path() . '/' . $claimsSmallImagesPublicUrl;
+//            copy($claimsImagesFolder . $file_name,  $claimsSmallImagesFolder . $file_name);
+//            $small = new \Imagick(realpath($claimsSmallImagesFolder . $file_name));
+////            $small->readImage($claimsSmallImagesFolder . $file_name);
+//            $small->resizeImage(600, 600, Imagick::FILTER_LANCZOS, 1);
+//            $small->clear();
+//            $small->destroy();
         }
 
         // If the claim is send from facebook.org app
@@ -416,9 +427,9 @@ pre br{
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
-    {
-        //
+    public function delete() {
+        $claim = Claim::find(Input::get('id'));
+        $claim->delete();
     }
 
     /**
