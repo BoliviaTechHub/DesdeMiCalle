@@ -310,7 +310,8 @@ pre br{
         }
 
         // TODO Change this after presentation!!.. ò_ó
-        $claim->isChecked = true;
+        // Change made.. :v
+        $claim->isChecked = false;
 
         // Put as name the first 15 characters of the description.
         if (!strlen($claim->title)) {
