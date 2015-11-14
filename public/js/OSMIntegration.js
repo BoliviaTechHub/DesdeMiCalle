@@ -121,8 +121,13 @@
             }
 
             if ($('#show-claim-map').length) {
-                var $claimTitle = $('#claim-title');
-                claimIndexMap = L.map('show-claim-map').setView([$claimTitle.data('latitude'), $claimTitle.data('longitude')], 17);
+
+              // The positions added to this vars is because the pin need to be in the middle of the screen.
+                var $claimTitle = $('#claim-title'),
+                  latitude = $claimTitle.data('latitude') - 0.00001,
+                  longitude = $claimTitle.data('longitude') + 0.005;
+
+                claimIndexMap = L.map('show-claim-map').setView([latitude, longitude], 17);
 
                 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
