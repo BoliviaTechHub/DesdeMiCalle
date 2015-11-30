@@ -30,6 +30,12 @@
             $(this).tab('show');
         });
 
+      // This timeout is a #chicle, because of the existence of a bug at
+      // Leaflet. The tiles in leaflet don't load properly when they're
+      // inner a hidden div.
+      setTimeout( function () {
+        $('#tab2').removeClass('active');
+
         // Rootwizard component
         $('#rootwizard').bootstrapWizard({
             onTabShow: function (tab, navigation, index) {
@@ -48,6 +54,8 @@
                 return 0;
             }
         });
+
+      }, 1000);
 
         // Support a Claim
         $('#supportToClaimButton').click(function () {

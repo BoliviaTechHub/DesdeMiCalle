@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="tab2">
+            <div class="tab-pane active" id="tab2">
                 <div class="row">
                     <div class="col-sm-8">
                         <label>Ubica tu reclamo en el mapa</label>
