@@ -1040,6 +1040,11 @@ input[type="radio"], input[type="checkbox"] {
         left: 291px;
 		top: 55px;
     }
+
+    .map {
+        width: 400%;
+    }
+
 	#main-content{
 		bottom: 55px;
         overflow: auto;

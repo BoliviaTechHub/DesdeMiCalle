@@ -123,9 +123,17 @@
             if ($('#show-claim-map').length) {
 
               // The positions added to this vars is because the pin need to be in the middle of the screen.
-                var $claimTitle = $('#claim-title'),
-                  latitude = $claimTitle.data('latitude') - 0.00001,
-                  longitude = $claimTitle.data('longitude') + 0.005;
+                var latitudeDelta = screen.width / -136600000,
+                  longitudeDelta = screen.height / 153600,
+                  $claimTitle = $('#claim-title'),
+                  latitude = $claimTitle.data('latitude'),
+                  longitude = $claimTitle.data('longitude');
+
+              // Validation if the device isn't a mobile device.
+              if (screen.width >= 768) {
+                latitude += latitudeDelta;
+                longitude += longitudeDelta;
+              }
 
                 claimIndexMap = L.map('show-claim-map').setView([latitude, longitude], 17);
 
