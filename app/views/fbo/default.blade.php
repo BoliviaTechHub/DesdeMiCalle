@@ -19,7 +19,7 @@
         <br/>
         @yield('content')
         <br/>
-        <img src="{{asset('/fbo_files/img/logo-hivos.png')}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{asset('/fbo_files/img/bth.png')}}">
+        <img src="{{asset('/fbo_files/img/logo-hivos.png')}}" width="20%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{{asset('/fbo_files/img/bth.png')}}" width="20%">
     </div>
 
 </div>
