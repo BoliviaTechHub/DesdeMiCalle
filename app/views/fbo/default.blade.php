@@ -25,11 +25,8 @@
 </div>
 <div class="container footer">
     <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-12">
             <label>© 2015 SIM</label>
-        </div>
-        <div class="col-xs-5 text-right">
-            <a class="button btn-clear button-icon btn-git" href="http://github.com/BoliviaTechHub/DesdeMiCalle" target="_blank"></a>
         </div>
     </div>
 </div>

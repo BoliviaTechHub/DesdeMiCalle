@@ -21,7 +21,7 @@
         {{--</div>--}}
 
         <label class="col-xs-12 question">¿Algo mas que quieras decir?</label>
-        {{ Form::textarea('description', null, ['class' => '']) }}
+        {{ Form::textarea('description', null, ['class' => '', 'rows' => '2']) }}
         {{--<label class="col-xs-12 question">¿Tienes alguna fotografia?</label>--}}
         {{--<input type="file" id="myFile" class="file">--}}
         <p class="text-center">

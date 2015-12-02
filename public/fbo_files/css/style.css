@@ -162,15 +162,16 @@ input[type="button"].button-primary:focus {
     color: #ffffff;
     border: 2px solid #fff;
     padding: 10px 10px 10px 45px;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     text-align: left;
     text-decoration: none;
     margin: 5px 0px;
-    display: inline-block;
-    width: 225px;
+    display: block;
+    width: 60%;
+    white-space: normal;
     background-repeat: no-repeat;
-    background-position: 5px center;  
+    background-position: 5px center;
 }
 .btn-clear:hover {
     color: #fff;
