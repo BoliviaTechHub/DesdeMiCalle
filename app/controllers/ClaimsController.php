@@ -339,15 +339,15 @@ pre br{
             $claimsSmallImagesPublicUrl = 'images/uploaded/claims/small/';
             $claimsSmallImagesFolder = public_path() . '/' . $claimsSmallImagesPublicUrl;
             $smallImage = new Imagick($claimsImagesFolder . $file_name);
-            $smallImage->resizeImage(100,0,Imagick::FILTER_LANCZOS,1);
+            $smallImage->resizeImage(400,0,Imagick::FILTER_LANCZOS,1);
             $smallImage->writeImage($claimsSmallImagesFolder . $file_name);
 
-//            copy($claimsImagesFolder . $file_name,  $claimsSmallImagesFolder . $file_name);
-//            $small = new \Imagick(realpath($claimsSmallImagesFolder . $file_name));
-//            $small->readImage($claimsSmallImagesFolder . $file_name);
-//            $small->resizeImage(600, 600, Imagick::FILTER_LANCZOS, 1);
-//            $small->clear();
-//            $small->destroy();
+            // Saving a thumb copy of the image.
+            $claimsThumbImagesPublicUrl = 'images/uploaded/claims/thumb/';
+            $claimsThumbImagesFolder = public_path() . '/' . $claimsThumbImagesPublicUrl;
+            $thumbImage = new Imagick($claimsImagesFolder . $file_name);
+            $thumbImage->resizeImage(100,0,Imagick::FILTER_LANCZOS,1);
+            $thumbImage->writeImage($claimsThumbImagesFolder . $file_name);
         }
 
         // If the claim is send from facebook.org app
@@ -368,9 +368,17 @@ pre br{
         $claim->childCategory = ClaimWorkCategory::find($claim->claimWorkCategoryId);
         $claim->parentCategory = ClaimWorkCategory::find($this->getParentCategoryId($claim->id));
         $user = User::find($claim->userId);
+
+        // Check if there is a small version of the image.
+        $smallImageUrl = str_replace('claims/', 'claims/small/', $claim->image_url);
+        if(file_exists(public_path() . '/' . $smallImageUrl)) {
+            $claim->image_url = $smallImageUrl;
+        }
+
         return View::make('claims.show', [
             'claim' => $claim,
-            'user_name' => $user->name . ' ' . $user->lastName
+            'user_name' => $user->name . ' ' . $user->lastName,
+            'image_url' => $claim->image_url
         ]);
     }
 
