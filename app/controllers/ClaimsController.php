@@ -335,13 +335,16 @@ pre br{
             $claim->image_url = $claimsImagesPublicUrl . $file_name;
             $claim->save();
 
-            // Fucking Imagick.. :|
-//            // Saving a small copy of the image.
-//            $claimsSmallImagesPublicUrl = 'images/uploaded/claims/small/';
-//            $claimsSmallImagesFolder = public_path() . '/' . $claimsSmallImagesPublicUrl;
+            // Saving a small copy of the image.
+            $claimsSmallImagesPublicUrl = 'images/uploaded/claims/small/';
+            $claimsSmallImagesFolder = public_path() . '/' . $claimsSmallImagesPublicUrl;
+            $smallImage = new Imagick($claimsImagesFolder . $file_name);
+            $smallImage->resizeImage(100,0,Imagick::FILTER_LANCZOS,1);
+            $smallImage->writeImage($claimsSmallImagesFolder . $file_name);
+
 //            copy($claimsImagesFolder . $file_name,  $claimsSmallImagesFolder . $file_name);
 //            $small = new \Imagick(realpath($claimsSmallImagesFolder . $file_name));
-////            $small->readImage($claimsSmallImagesFolder . $file_name);
+//            $small->readImage($claimsSmallImagesFolder . $file_name);
 //            $small->resizeImage(600, 600, Imagick::FILTER_LANCZOS, 1);
 //            $small->clear();
 //            $small->destroy();
